@@ -11,19 +11,18 @@
 	$rowt = array();
 	$returnable = array();
 	while ($row = mysql_fetch_row($mission)) {
-		$rowt['id'] = $row[0];
-		$rowt['name'] = $row[1];
-		$rowt['street'] = $row[2];
-		$rowt['city'] = $row[3];
-		$rowt['zipcode'] = $row[4];
-		$rowt['description'] = $row[5];
-		$rowt['start_date'] = $row[6];
-		$rowt['end_date'] = $row[7];
-		$rowt['badge_title'] = $row[8];
-		$rowt['reward'] = $row[9];
+		$output['id'] = $row[0];
+		$output['name'] = $row[1];
+		$output['street'] = $row[2];
+		$output['city'] = $row[3];
+		$output['zipcode'] = $row[4];
+		$output['description'] = $row[5];
+		$output['start_date'] = $row[6];
+		$output['end_date'] = $row[7];
+		$output['badge_title'] = $row[8];
+		$output['reward'] = $row[9];
 	}
-	$returnable = $rowt;
-	$output['data'] = $returnable;
+	//$output['data'] = $returnable;
 	$output['err'] = FALSE;
 	$output['msg'] = "Got data: $returnable";
 	

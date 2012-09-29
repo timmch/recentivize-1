@@ -18,6 +18,31 @@
 		$rowt['city'] = $row[4];
 		$rowt['state'] = $row[5];
 		$rowt['points'] = $row[6];
+		if($row[6] > 400)
+		{
+			$rowt['level'] = 5;
+			$rowt['level_title'] = "World Changer";
+		}
+		else if($row[6] > 300)
+		{
+			$rowt['level'] = 4;
+			$rowt['level_title'] = "Contributor";
+		}
+		else if($row[6] > 200)
+		{
+			$rowt['level'] = 3;
+			$rowt['level_title'] = "Community Impacter";
+		}				
+		else if($row[6] > 100)
+		{
+			$rowt['level'] = 2;
+			$rowt['level_title'] = "Contributor";
+		}
+		else
+		{
+			$rowt['level'] = 1;
+			$rowt['level_title'] = 'Beginner';
+		}
 		$rowt['coins'] = $row[7];
 	}
 	

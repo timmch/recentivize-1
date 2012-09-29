@@ -4,9 +4,9 @@
 	$hostname = "108.167.179.192"; 
 	$dbhandle = mysql_connect($hostname, $username, $password) 
 	  or die("Unable to connect to MySQL");
-	$missionID = $_POST['id'];
+
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
-	$mission = mysql_query("SELECT missions.id, missions.name, missions.street, missions.city, missions.zipcode, missions.description, missions.start_date, missions.end_date, missions.badge_title, missions.reward FROM missions WHERE id = $missionID");
+	$mission = mysql_query("INSERT INTO events ( users_id, groups_id, missions_id ) VALUES ( 1, NULL, 1 )");
 
 	$rowt = array();
 	$returnable = array();

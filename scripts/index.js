@@ -298,13 +298,13 @@ function viewMission(id){
 			if(returnData.err == false){
 				console.log('Getting selected mission details\t\t\t\t - [SUCCESS]');
 //				console.log('• ' + returnData.msg);
-//				console.log(returnData.data[0].id);
+				console.log(returnData.id);
 				
 				
 				
 				// Grab all the mission details
-				for(details in returnData.data)
-				{
+//				for(details in returnData.data)
+//				{
 					console.log(returnData.data[details].id);
 					var id = returnData.data.id;
 					var name = returnData.data.name;

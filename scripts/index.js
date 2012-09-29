@@ -72,7 +72,6 @@ function getUser(){
 			if(returnData.err == false){
 				console.log('Getting user info\t\t\t\t - [SUCCESS]');
 				console.log('• ' + returnData.msg);
-				console.log('• ' + returnData.data.level);
 				
 				// Populate the user info
 				$('#user .nameInfo .name').text(returnData.data.first_name);
@@ -198,6 +197,8 @@ function getUser(){
 // - Grabs active/available/completed missions
 // =====================================================================================================================
 function getMission(){
+console.log('yep');
+	
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/getMission.php',
@@ -286,7 +287,7 @@ function getMission(){
 // View Mission
 // - Grabs selected mission
 // =====================================================================================================================
-function getMission(id){
+function viewMission(id){
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/viewMission.php',
@@ -298,14 +299,36 @@ function getMission(id){
 				console.log('Getting selected mission details\t\t\t\t - [SUCCESS]');
 				console.log('• ' + returnData.msg);
 				
-				
-				
+				// Grab all the mission details
+				for(details in returnData.data)
+				{
+					var id = returnData.data[details].id;
+					var name = returnData.data[details].name;
+					var street = returnData.data[details].street;
+					var city = returnData.data[details].city;
+					var zipcode = returnData.data[details].zipcode;
+					var description = returnData.data[details].description;
+					var start_date = returnData.data[details].start_date;
+					var end_date = returnData.data[details].end_date;
+					var badge_title = returnData.data[details].badge_title;
+					var reward = returnData.data[details].reward;
+					
+					console.log(id);
+					console.log(name);
+					console.log(steet);
+					console.log(zipcode);
+					console.log(description);
+					console.log(start_date);
+					console.log(end_date);
+					console.log(badge_title);
+					console.log(reward);
+				}
 			}
 			// Display error
 			else{ console.log('Getting selected mission details\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
 			
 		},
-		error	: function(){ console.log('ERROR: ajax/getMission.php is busted!'); }
+		error	: function(){ console.log('ERROR: ajax/viewMission.php is busted!'); }
 	});
 }
 

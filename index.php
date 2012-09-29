@@ -6,15 +6,16 @@
 	
 	<!-- Include jQuery Style Sheets -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/smoothness/jquery-ui-1.8.19.custom.css" />
-	
-	<meta name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=0.5; user-scalable=0;" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/jquery.qtip.min.css" />
 	
 	<!-- Include Our Style Sheets -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/main.css" />
+	<meta name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=0.5; user-scalable=0;" />
 	
 	<!-- Include jQuery Scripts -->
 	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>js/jquery-ui-1.8.19.custom.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>js/jquery.qtip.min.js"></script>
 	
 	<!-- Include Our Scripts -->
 	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>scripts/index.js"></script>
@@ -56,23 +57,15 @@
 			<div id="missions">
 				<div class="active">
 					<div class="heading">Active missions</div>
-					<div class="missionList">
-						<div class="mission odd">row 1</div>
-						<div class="mission even">row 2</div>
-						<div class="mission odd">row 3</div>
-						<div class="mission even">row 4</div>
-						<div class="mission odd">row 5</div>
-						<div class="mission even">row 6</div>
-						<div class="mission odd">row 7</div>
-					</div>
+					<div class="missionList"></div>
 				</div>
 				<div class="available">
 					<div class="heading">Available missions</div>
-					<div class="missionList">list</div>
+					<div class="missionList"></div>
 				</div>
 				<div class="completed">
 					<div class="heading">Completed missions</div>
-					<div class="missionList">list</div>
+					<div class="missionList"></div>
 				</div>
 			</div>
 			<div id="trophies">

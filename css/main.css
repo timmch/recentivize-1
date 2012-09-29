@@ -49,8 +49,8 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 
 #navigationHeader{
 	height: 60px;
-	border: 1px solid #000;
-	background: #609AE7;
+/*	border: 1px solid #000;*/
+	background: #000;
 }
 #navigationHeader .backButton{
 	float: left;
@@ -68,18 +68,21 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 #navigationHeader .logo{
 	float: right;
+	width: 247px;
+	height: 60px;
 	
-/*	background				: url('../images/icons/backButton.png');
+	background				: url('../images/logo.png');
 	-webkit-background-size	: 100% 100%;
 	   -moz-background-size	: 100% 100%;
 		 -o-background-size	: 100% 100%;
-			background-size : 100% 100%;*/
+			background-size : 100% 100%;
 }
 
 .mainPage{
 /*	padding: 5px;*/
 }
 #profilePage{
+	padding: 5px;
 }
 #missionPage{
 	display: none;
@@ -92,23 +95,28 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 #user{
 	float: left;
 	width: 300px;
+	background: #FFF;
+	border: 1px solid #000;
 	
-	border: 2px solid aqua;
+	-webkit-border-radius	: 5px;
+	   -moz-border-radius	: 5px;
+	        border-radius	: 5px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #user .nameInfo{
-	background: #FFF;
 	padding: 3px;
 	
-	border: 1px solid #333;
+	font-size: 30px;
+	border-bottom: 1px solid #000;
 }
 #user .basicInfo{
 	overflow: auto;
-	border: 2px solid green;
+/*	border: 2px solid green;*/
 }
 #user .basicInfo .avatar{
 	float: left;
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	
 	background: red;
 	
@@ -118,7 +126,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	float: left;
 	padding: 3px;
 
-	border: 1px solid #333;	
+/*	border: 1px solid #333;	*/
 }
 
 
@@ -129,10 +137,10 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	overflow: auto;
 	padding: 3px;
 	
-	border: 1px solid fuchsia;
+/*	border: 1px solid fuchsia;*/
 }
 #user .levelInfo .heading{
-	float: left;	
+	float: left;
 }
 #user .levelInfo .heading .levelTitle{
 	font-size: 16px;
@@ -163,7 +171,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	
 	padding: 3px;
 	
-	border: 1px solid #333;
+/*	border: 1px solid #333;*/
 }
 #user .goldInfo .heading{
 	float: left;
@@ -182,45 +190,54 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 #missions{
 	float: right;
 	width: 300px;
-
-	border: 2px solid red;
 }
 #missions .heading{
+	font-size: 30px;
 	padding: 3px;
 	background: #FFF;
-	border-bottom: 1px solid #000;
+	border: 1px solid #000;
+	
+	text-align: center;
+	
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	   -moz-border-radius	: 5px 5px 0px 0px;
+	        border-radius	: 5px 5px 0px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #missions .active{
-
-
-	border: 1px solid #333;
+	margin-bottom: 5px;
 }
 #missions .available{
-
-	border: 1px solid #333;
+	margin-bottom: 5px;
 }
 #missions .completed{
-	
-	border: 1px solid #333;
+	margin-bottom: 5px;
 }
 #missions .missionList{
-	height: 100px;
+	height: 115px;
 	overflow: auto;
-	border: 1px solid blue;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	
+	-webkit-border-radius	: 0px 0px 5px 5px;
+	   -moz-border-radius	: 0px 0px 5px 5px;
+	        border-radius	: 0px 0px 5px 5px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #missions .missionList .mission{
 	padding: 1px 5px;
 
 	cursor: pointer;
 	text-align: left;
-	font-size: 16px;
-	color: #FFF;
+	font-size: 20px;
+	color: #000;
 }
 #missions .missionList .mission.odd{
-	background: #777;
+	background: #52BDFF;
 }
 #missions .missionList .mission.even{
-	background: #999;
+	background: #8AD2FF;
 }
 #missions .missionList .mission:hover{
 	color: #FFF;
@@ -233,28 +250,36 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 // ===================================================================================================================*/
 #trophies{
 	clear: both;
-	
-	border: 1px solid green;
 }
 
 #trophies .heading{
 	padding: 3px;
 	background: #FFF;
-	border-bottom: 1px solid #000;
+	border: 1px solid #000;
+	
+	font-size: 30px;
 
 	text-align: center;
 
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	   -moz-border-radius	: 5px 5px 0px 0px;
+	        border-radius	: 5px 5px 0px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #trophies .trophyList{
 	clear: both;
 	overflow: auto;
 	
 	padding: 3px;
+	
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
 }
 #trophies .trophyList .trophy{
 	float: left;
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	padding: 3px;
 	margin-right: 3px;
 	
@@ -276,6 +301,8 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 #missionInfo .name{
 	font-size: 50px;
+	height: 120px;
+	padding: 5px;
 	
 	text-align: center;
 	
@@ -286,7 +313,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	border: 1px solid #333;
 }
 #missionInfo .descriptionInfo .heading{
-	font-size: 25px;
+	font-size: 30px;
 	background: #FFF;
 }
 #missionInfo .descriptionInfo .description{
@@ -307,6 +334,8 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 #missionInfo .timeLeftInfo .timeLeft{
 	font-size: 25px;
+	
+	text-align: center;
 }
 
 #missionInfo .rewardsInfo{
@@ -322,22 +351,25 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	text-align: center;
 }
 #missionInfo .rewardsInfo .badge{
-	width: 100px;
-	height: 100px;
-	background: red;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #000;
+	
+	-webkit-background-size	: 100% 100%;
+	   -moz-background-size	: 100% 100%;
+		 -o-background-size	: 100% 100%;
+			background-size : 100% 100%;
 }
 #mapInfo{
 	float: right;
 	border: 1px solid red;
 }
 #mapInfo .heading{
+	font-size: 30px;
 	background: #FFF;
 }
-#mapInfo .street{
-	float: left;
-}
-#mapInfo .zipcode{
-	float: left;
+#mapInfo .address{
+	text-align: center;
 }
 #mapCanvas{
 	width: 300px;
@@ -352,17 +384,37 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 // Accept / Complete Mission Buttons
 // ===================================================================================================================*/
 #acceptMission{
+	display: none;
 	clear: both;
 	width: 400px;
 /*	height: 100px;*/
 	background: #FFF;
 	
+	cursor: pointer;
 	padding: 25px 5px;
 	font-size: 40px;
 	text-align: center;
 }
-
-
+#acceptMission:hover{
+	color: #FFF;
+	background: #000;
+}
+#completeMission{
+	display: none;
+	clear: both;
+	width: 400px;
+/*	height: 100px;*/
+	background: #FFF;
+	
+	cursor: pointer;
+	padding: 25px 5px;
+	font-size: 40px;
+	text-align: center;
+}
+#completeMission:hover{
+	color: #FFF;
+	background: #000;
+}
 
 
 

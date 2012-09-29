@@ -24,6 +24,8 @@ $(function() {
 		$('#profilePage').hide('slide', {direction: 'left', easing: 'easeOutExpo'}, 500, function () {
 			$('#missionPage').show('slide', {direction: 'left', easing: 'easeOutExpo'}, 500);
 			$('#navigationHeader .backButton').fadeIn(500);
+			
+			viewMission($(this).data('id'));
 		});
 
 	});
@@ -76,21 +78,20 @@ function getUser(){
 				$('#user .nameInfo .name').text(returnData.data.first_name);
 				$('#user .basicInfo .city').text(returnData.data.city);
 				
-				// Fill in the level indicator
-				var level = returnData.data.level;
-				if(level >= 1){ $('#user .level1').addClass('highlight'); }
-				if(level >= 2){ $('#user .level2').addClass('highlight'); }
-				if(level >= 3){ $('#user .level3').addClass('highlight'); }
-				if(level >= 4){ $('#user .level4').addClass('highlight'); }
-				if(level >= 5){ $('#user .level5').addClass('highlight'); }
+				// Fill in the level indicator & title
+				var level1Tooltip = returnData.data.level_title_1;
+				var level2Tooltip = returnData.data.level_title_2;
+				var level3Tooltip = returnData.data.level_title_3;
+				var level4Tooltip = returnData.data.level_title_4;
+				var level5Tooltip = returnData.data.level_title_5;
 				
-//				var level1Tooltip = returnData.data.level_title;
-
-				var level1Tooltip = 'tooltip 1';
-				var level2Tooltip = 'tooltip 2';
-				var level3Tooltip = 'tooltip 3';
-				var level4Tooltip = 'tooltip 4';
-				var level5Tooltip = 'tooltip 5';
+				var level = returnData.data.level;
+				if(level >= 1){ $('#user .level1').addClass('highlight'); $('#user .levelTitle').text('('+level1Tooltip+')'); }
+				if(level >= 2){ $('#user .level2').addClass('highlight'); $('#user .levelTitle').text('('+level2Tooltip+')'); }
+				if(level >= 3){ $('#user .level3').addClass('highlight'); $('#user .levelTitle').text('('+level3Tooltip+')'); }
+				if(level >= 4){ $('#user .level4').addClass('highlight'); $('#user .levelTitle').text('('+level4Tooltip+')'); }
+				if(level >= 5){ $('#user .level5').addClass('highlight'); $('#user .levelTitle').text('('+level5Tooltip+')'); }
+				
 				
 				
 				$('#user .level1').qtip({
@@ -101,7 +102,7 @@ function getUser(){
 					style: {
 						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
 						tip: true,
-						width: '250px',
+						width: '150px',
 					},
 					position: {
 						my: 'bottom left', 
@@ -119,7 +120,7 @@ function getUser(){
 					style: {
 						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
 						tip: true,
-						width: '250px',
+						width: '150px',
 					},
 					position: {
 						my: 'bottom left', 
@@ -137,7 +138,7 @@ function getUser(){
 					style: {
 						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
 						tip: true,
-						width: '250px',
+						width: '150px',
 					},
 					position: {
 						my: 'bottom left', 
@@ -155,7 +156,7 @@ function getUser(){
 					style: {
 						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
 						tip: true,
-						width: '250px',
+						width: '150px',
 					},
 					position: {
 						my: 'bottom left', 
@@ -173,7 +174,7 @@ function getUser(){
 					style: {
 						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
 						tip: true,
-						width: '250px',
+						width: '150px',
 					},
 					position: {
 						my: 'bottom left', 
@@ -281,7 +282,32 @@ function getMission(){
 	});
 }
 
-
+// =====================================================================================================================
+// View Mission
+// - Grabs selected mission
+// =====================================================================================================================
+function getMission(id){
+	$.ajax({
+		type	: 'POST',
+		url		: WEB_URL + 'ajax/viewMission.php',
+		data	: { id: id },
+		dataType: 'json',
+		success	: function(returnData){
+			// No error, go ahead
+			if(returnData.err == false){
+				console.log('Getting selected mission details\t\t\t\t - [SUCCESS]');
+				console.log('• ' + returnData.msg);
+				
+				
+				
+			}
+			// Display error
+			else{ console.log('Getting selected mission details\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
+			
+		},
+		error	: function(){ console.log('ERROR: ajax/getMission.php is busted!'); }
+	});
+}
 
 
 

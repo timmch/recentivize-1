@@ -27,6 +27,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 .txt400						{ font-weight: 400; }
 .txt600						{ font-weight: 600; }
 
+.ui-tooltip-tipsy			{ border: 1px solid #FFF; }
 
 /* =====================================================================================================================
 // Main Containers & Windows
@@ -111,8 +112,10 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	border: 1px solid fuchsia;
 }
 #user .levelInfo .heading{
-	float: left;
-	
+	float: left;	
+}
+#user .levelInfo .heading .levelTitle{
+
 }
 #user .levelInfo .levelIndicator{
 	clear: both;
@@ -121,6 +124,8 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	float: left;
 	width: 20px;
 	height: 20px;
+	
+	cursor: help;
 	
 	border-top: 1px solid #000;
 	border-bottom: 1px solid #000;
@@ -188,7 +193,8 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 
 	cursor: pointer;
 	text-align: left;
-	font-size: 12px;
+	font-size: 16px;
+	color: #FFF;
 }
 #missions .missionList .mission.odd{
 	background: #777;
@@ -216,7 +222,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	background: #FFF;
 	border-bottom: 1px solid #000;
 
-	text-align: left;
+	text-align: center;
 
 }
 #trophies .trophyList{

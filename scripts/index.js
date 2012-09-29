@@ -13,10 +13,16 @@ $(function() {
 	
 //	setTimeout(function() {
 		getUser();
+		getMission();
 //	}, 2000);
 
 //	alert($('#mainWindow').outerHeight(true));
 //	alert($('#mainWindow').outerWidth(true));
+
+	$('#missions .active').on('click', '.mission', function() {
+		console.log($(this).data('id'));
+	});
+	
 });
 
 
@@ -38,8 +44,8 @@ $(window).resize(function() {
 
 
 // =====================================================================================================================
-// Get Data
-// - Grabs some test data
+// Get User
+// - Grabs user info
 // =====================================================================================================================
 function getUser(){
 	$.ajax({
@@ -52,21 +58,119 @@ function getUser(){
 			if(returnData.err == false){
 				console.log('Getting user info\t\t\t\t - [SUCCESS]');
 				console.log('• ' + returnData.msg);
-//				console.log('• ' + returnData.data.city);
+				console.log('• ' + returnData.data.level);
 				
 				// Populate the user info
 				$('#user .nameInfo .name').text(returnData.data.first_name);
 				$('#user .basicInfo .city').text(returnData.data.city);
 				
-				// TEMP*****
-				var level = 3;
-				
 				// Fill in the level indicator
+				var level = returnData.data.level;
 				if(level >= 1){ $('#user .level1').addClass('highlight'); }
 				if(level >= 2){ $('#user .level2').addClass('highlight'); }
 				if(level >= 3){ $('#user .level3').addClass('highlight'); }
 				if(level >= 4){ $('#user .level4').addClass('highlight'); }
 				if(level >= 5){ $('#user .level5').addClass('highlight'); }
+				
+//				var level1Tooltip = returnData.data.level_title;
+
+				var level1Tooltip = 'tooltip 1';
+				var level2Tooltip = 'tooltip 2';
+				var level3Tooltip = 'tooltip 3';
+				var level4Tooltip = 'tooltip 4';
+				var level5Tooltip = 'tooltip 5';
+				
+				
+				$('#user .level1').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level1Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level2').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level2Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level3').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level3Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level4').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level4Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level5').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level5Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
 			}
 			// Display error
 			else{ console.log('Getting user info\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
@@ -76,25 +180,94 @@ function getUser(){
 	});
 }
 
-
-
 // =====================================================================================================================
-// Resize Containers
-// - Resizes containers to fit any users screen resolution
-// |	height()		= E			|	outerHeight() 		= E + P + B			|
-// |	innerHeight()	= E + P		|	outerHeight(true)	= E + P + B + M		|
+// Get Mission
+// - Grabs active/available/completed missions
 // =====================================================================================================================
-function resizeContainers() {
-	// mainWindow
-	// =======================================================
-//	var mainWindowHeight				= $('#mainWindow').innerHeight()
-//										- $('#mainHeader').outerHeight(true);
-//	$('#mainContent').height(mainContentHeight);
+function getMission(){
+	$.ajax({
+		type	: 'POST',
+		url		: WEB_URL + 'ajax/getMission.php',
+		data	: { },
+		dataType: 'json',
+		success	: function(returnData){
+			// No error, go ahead
+			if(returnData.err == false){
+				console.log('Getting mission info\t\t\t\t - [SUCCESS]');
+				console.log('• ' + returnData.msg);
+				
+				// Grab all the active missions
+				var count = 1;
+				for(mission in returnData.data.active)
+				{
+					var id = returnData.data.active[mission].id;
+					var name = returnData.data.active[mission].name;
+					
+					// Even Row
+					if (count%2 == 0){
+						var mission = $('<div class="mission even">'+ name +'</div>');
+					}
+					// Odd Row
+					else{
+						var mission = $('<div class="mission odd">'+ name +'</div>');
+					}
+					
+					mission.data('id', id);
+					
+					$('#missions .active .missionList').append(mission);
+					count++;
+				}
+				// Grab all the available missions
+				count = 1;
+				for(mission in returnData.data.available)
+				{
+					var id = returnData.data.available[mission].id;
+					var name = returnData.data.available[mission].name;
+					
+					// Even Row
+					if (count%2 == 0){
+						var mission = $('<div class="mission even">'+ name +'</div>');
+					}
+					// Odd Row
+					else{
+						var mission = $('<div class="mission odd">'+ name +'</div>');
+					}
+					
+					mission.data('id', id);
+					
+					$('#missions .available .missionList').append(mission);
+					count++;
+				}
+				// Grab all the completed missions
+				count = 1;
+				for(mission in returnData.data.completed)
+				{
+					var id = returnData.data.completed[mission].id;
+					var name = returnData.data.completed[mission].name;
+					
+					// Even Row
+					if (count%2 == 0){
+						var mission = $('<div class="mission even">'+ name +'</div>');
+					}
+					// Odd Row
+					else{
+						var mission = $('<div class="mission odd">'+ name +'</div>');
+					}
+					
+					mission.data('id', id);
+					
+					$('#missions .completed .missionList').append(mission);
+					count++;
+				}
+				
+			}
+			// Display error
+			else{ console.log('Getting mission info\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
+			
+		},
+		error	: function(){ console.log('ERROR: ajax/getMission.php is busted!'); }
+	});
 }
-
-
-
-
 
 
 

@@ -8,6 +8,22 @@
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
 	$mission = mysql_query("SELECT missions.id, missions.name, missions.street, missions.city, missions.zipcode, missions.description, missions.start_date, missions.end_date, missions.badge_title, missions.reward FROM missions WHERE id = $missionID");
 
+	$activeMissions = mysql_query("SELECT missions.id FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=1 AND events.is_completed=0 AND missions.id = $missionID");
+	$completedMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=1 AND events.is_completed=1 AND missions.id = $missionID");
+	$availableMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON events.missions_id=missions.id WHERE missions.id NOT IN (SELECT missions_ID FROM events WHERE users_id=1 AND id = $missionID)");
+
+	if($activeMissions!= null)
+	{
+		$output['status'] = 'active';
+	}
+	elseif($completedMissions != null)
+	{
+		$output['status'] = 'complete';
+	}
+	else
+	{
+		$output['status'] = 'available';
+	}
 	$rowt = array();
 	$returnable = array();
 	while ($row = mysql_fetch_row($mission)) {
@@ -22,9 +38,7 @@
 		$output['badge_title'] = $row[8];
 		$output['reward'] = $row[9];
 	}
-	//$output['data'] = $returnable;
 	$output['err'] = FALSE;
-	$output['msg'] = "Got data: $returnable";
 	
 	echo json_encode($output);
 ?>

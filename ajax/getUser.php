@@ -21,28 +21,28 @@
 		if($row[6] > 400)
 		{
 			$rowt['level'] = 5;
-			$rowt['level_title'] = "World Changer";
 		}
 		else if($row[6] > 300)
 		{
 			$rowt['level'] = 4;
-			$rowt['level_title'] = "Contributor";
 		}
 		else if($row[6] > 200)
 		{
 			$rowt['level'] = 3;
-			$rowt['level_title'] = "Community Impacter";
 		}				
 		else if($row[6] > 100)
 		{
 			$rowt['level'] = 2;
-			$rowt['level_title'] = "Contributor";
 		}
 		else
 		{
 			$rowt['level'] = 1;
-			$rowt['level_title'] = 'Beginner';
 		}
+		$rowt['level_title_5'] = "World Changer";
+		$rowt['level_title_4'] = "Community Impactor";
+		$rowt['level_title_3'] = "Influential Citizen";
+		$rowt['level_title_2'] = "Contributor";
+		$rowt['level_title_1'] = 'Beginner';
 		$rowt['coins'] = $row[7];
 	}
 	

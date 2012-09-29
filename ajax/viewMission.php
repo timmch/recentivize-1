@@ -21,9 +21,8 @@
 		$rowt['end_date'] = $row[7];
 		$rowt['badge_title'] = $row[8];
 		$rowt['reward'] = $row[9];
-		array_push($returnable, $rowt);
 	}
-	
+	$returnable = $rowt;
 	$output['data'] = $returnable;
 	$output['err'] = FALSE;
 	$output['msg'] = "Got data: $returnable";

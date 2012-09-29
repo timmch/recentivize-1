@@ -77,7 +77,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 
 .mainPage{
-	padding: 5px;
+/*	padding: 5px;*/
 }
 #profilePage{
 }
@@ -266,13 +266,101 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 
 
+/* =====================================================================================================================
+// Mission Info
+// ===================================================================================================================*/
+#missionInfo{
+	border: 1px solid orange;
+	overflow: auto;
+	margin-bottom: 10px;
+}
+#missionInfo .name{
+	font-size: 50px;
+	
+	text-align: center;
+	
+	background: #000;
+	color: #FFF;
+}
+#missionInfo .descriptionInfo{
+	border: 1px solid #333;
+}
+#missionInfo .descriptionInfo .heading{
+	font-size: 25px;
+	background: #FFF;
+}
+#missionInfo .descriptionInfo .description{
+/*	font-size: 20px;*/
+}
+#missionInfo .addressInfo .heading{
+	font-size: 25px;
+	
+	background: #FFF;
+}
+#missionInfo .timeLeftInfo{
+	float: left;
+	border: 1px solid fuchsia;
+}
+#missionInfo .timeLeftInfo .heading{
+	background: #FFF;
+	font-size: 30px;
+}
+#missionInfo .timeLeftInfo .timeLeft{
+	font-size: 25px;
+}
+
+#missionInfo .rewardsInfo{
+	clear: left;
+	float: left;
+	border: 1px solid blue;
+}
+#missionInfo .rewardsInfo .heading{
+	background: #FFF;
+}
+#missionInfo .rewardsInfo .badgeTitle{
+	font-size: 14px;
+	text-align: center;
+}
+#missionInfo .rewardsInfo .badge{
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+#mapInfo{
+	float: right;
+	border: 1px solid red;
+}
+#mapInfo .heading{
+	background: #FFF;
+}
+#mapInfo .street{
+	float: left;
+}
+#mapInfo .zipcode{
+	float: left;
+}
+#mapCanvas{
+	width: 300px;
+	height: 300px;
+	
+	border: 1px solid #333;
+}
 
 
 
-
-
-
-
+/* =====================================================================================================================
+// Accept / Complete Mission Buttons
+// ===================================================================================================================*/
+#acceptMission{
+	clear: both;
+	width: 400px;
+/*	height: 100px;*/
+	background: #FFF;
+	
+	padding: 25px 5px;
+	font-size: 40px;
+	text-align: center;
+}
 
 
 

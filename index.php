@@ -17,6 +17,9 @@
 	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>js/jquery-ui-1.8.19.custom.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>js/jquery.qtip.min.js"></script>
 	
+	<!-- Include API Scripts -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlNv-7LCziTkwRczpj4wLO-e6OUDOMKUY&sensor=false"></script>
+	
 	<!-- Include Our Scripts -->
 	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>scripts/index.js"></script>
 	
@@ -78,7 +81,33 @@
 			</div>
 		</div>
 		<div id="missionPage" class="mainPage">
-			the mission page!
+			<div id="missionInfo">
+				<div class="name"></div>
+				<div class="descriptionInfo">
+					<div class="heading">Description</div>
+					<div class="description"></div>
+				</div>
+				<div class="timeLeftInfo">
+					<div class="heading">Time Remaining</div>
+					<div class="timeLeft"></div>
+				</div>
+				<div id="mapInfo">
+					<div class="addressInfo">
+						<div class="heading">Location</div>
+						<div class="address"></div>
+					</div>
+					<div id="mapCanvas"></div>
+				</div>
+				<div class="rewardsInfo">
+					<div class="heading">Earn this badge</div>
+					<div class="badgeTitle"></div>
+					<div class="badge"></div>
+					<div class="heading">Earn this reward</div>
+					<div class="reward"></div>
+				</div>
+				
+			</div>
+			<div id="acceptMission">Accept Mission</div>
 		</div>
 	</div>
 </div>

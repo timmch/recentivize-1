@@ -12,5 +12,6 @@
 	$output['data'] = $data;
 	$output['err'] = FALSE;
 	$output['msg'] = "Got data: $data";
+	
 	echo json_encode($output);
 ?>

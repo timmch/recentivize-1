@@ -2,12 +2,7 @@
 <head>
 	<title>Spestle</title>
 	
-	<?php
-		defined('DS') ? null 		: define('DS',			DIRECTORY_SEPARATOR);
-		
-		defined('SITE_ROOT') ? null : define('SITE_ROOT',	DS.'Library'.DS.'WebServer'.DS.'Documents'.DS.'Spestle'.DS.'Live'.DS);
-		defined('WEB_URL') ? null 	: define('WEB_URL',		'http://localhost/recentivize'.DS);
-	?>
+	<?php require_once('initialize.php'); ?>
 	
 	<!-- Include jQuery Style Sheets -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/smoothness/jquery-ui-1.8.19.custom.css" />

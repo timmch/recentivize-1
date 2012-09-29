@@ -24,7 +24,7 @@ if ($_GET['login']) {
          $_SESSION['loggedin'] = 1;
           // Set session variable
  
-         header("Location: protected.php");
+         header("Location: index.php");
          exit;
          // Redirect to a protected page
  
@@ -42,7 +42,7 @@ require_once('header.php');?>
 	</div>
 	<div id="splashBox" class="clear">
 		<div id="signUpEmail">
-		<img src="<?php echo WEB_URL; ?>images/recentivize.png" alt="Smiley face" height="184" width="800">
+		<img src="<?php echo WEB_URL; ?>images/recentivize2.png" alt="Smiley face" height="184" width="800">
 
 			<h1>Making Volunteer Work Fun!</h1><br><br>
 			<form action="?login=1" method="post">
@@ -50,6 +50,7 @@ require_once('header.php');?>
 			</form>
 		</div>
 	</div>
+	<a href="http://zxing.appspot.com/scan?ret=http://foo.com/products/{CODE}/description&SCAN_FORMATS=UPC_A,EAN_13">here</a>
 	<div class="container marginTop">
 		<p style="position: relative;right:6px;"><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
 	</div>

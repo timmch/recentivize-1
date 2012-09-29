@@ -12,11 +12,12 @@
 	$completedMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=1 AND events.is_completed=1 AND missions.id = $missionID");
 	$availableMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON events.missions_id=missions.id WHERE missions.id NOT IN (SELECT missions_ID FROM events WHERE users_id=1 AND id = $missionID)");
 
-	if($activeMissions!= null)
+	$compare = array();
+	if($activeMissions!= $compare)
 	{
 		$output['status'] = 'active';
 	}
-	elseif($completedMissions != null)
+	elseif($completedMissions != $compare)
 	{
 		$output['status'] = 'complete';
 	}

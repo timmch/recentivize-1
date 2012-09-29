@@ -6,5 +6,5 @@
 	  or die("Unable to connect to MySQL");
 	$missionID = $_POST['id'];
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
-	$mission = mysql_query("INSERT INTO events ( users_id, groups_id, missions_id ) VALUES ( 1, NULL, $missionID )");
+	$mission = mysql_query("UPDATE events SET is_completed = 1 where events.users_id = 1, events.missions_id = $missionID");
 ?>

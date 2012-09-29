@@ -64,15 +64,113 @@ function getUser(){
 				$('#user .nameInfo .name').text(returnData.data.first_name);
 				$('#user .basicInfo .city').text(returnData.data.city);
 				
-				// TEMP*****
-				var level = returnData.data.level;
-				
 				// Fill in the level indicator
+				var level = returnData.data.level;
 				if(level >= 1){ $('#user .level1').addClass('highlight'); }
 				if(level >= 2){ $('#user .level2').addClass('highlight'); }
 				if(level >= 3){ $('#user .level3').addClass('highlight'); }
 				if(level >= 4){ $('#user .level4').addClass('highlight'); }
 				if(level >= 5){ $('#user .level5').addClass('highlight'); }
+				
+//				var level1Tooltip = returnData.data.level_title;
+
+				var level1Tooltip = 'tooltip 1';
+				var level2Tooltip = 'tooltip 2';
+				var level3Tooltip = 'tooltip 3';
+				var level4Tooltip = 'tooltip 4';
+				var level5Tooltip = 'tooltip 5';
+				
+				
+				$('#user .level1').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level1Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level2').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level2Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level3').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level3Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level4').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level4Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
+				$('#user .level5').qtip({
+					overwrite: false,		// Make sure the tooltip won't be overridden once created
+					content: {
+						text: level5Tooltip,
+					},
+					style: {
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '250px',
+					},
+					position: {
+						my: 'bottom left', 
+						at: 'top center'
+					},
+					show: {
+						event: 'mouseover',
+					},
+				}, event); // Pass through our original event to qTip
 			}
 			// Display error
 			else{ console.log('Getting user info\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }

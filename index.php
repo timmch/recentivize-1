@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div class="levelInfo">
-					<div class="heading">Level</div>
+					<div class="heading">Level&nbsp;<span class="levelTitle">(Title)</span></div>
 					<div class="levelIndicator">
 						<div class="level1 level"></div>
 						<div class="level2 level"></div>

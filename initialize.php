@@ -1,5 +1,5 @@
 <?php
-	$developer		= 'NICK';
+	$developer		= 'TIM';
 	
 	// Use correct directory depending on developer
 	switch($developer){

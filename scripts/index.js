@@ -297,32 +297,36 @@ function viewMission(id){
 			// No error, go ahead
 			if(returnData.err == false){
 				console.log('Getting selected mission details\t\t\t\t - [SUCCESS]');
-				console.log('• ' + returnData.msg);
+//				console.log('• ' + returnData.msg);
+//				console.log(returnData.data[0].id);
+				
+				
 				
 				// Grab all the mission details
 				for(details in returnData.data)
 				{
-					var id = returnData.data[details].id;
-					var name = returnData.data[details].name;
-					var street = returnData.data[details].street;
-					var city = returnData.data[details].city;
-					var zipcode = returnData.data[details].zipcode;
-					var description = returnData.data[details].description;
-					var start_date = returnData.data[details].start_date;
-					var end_date = returnData.data[details].end_date;
-					var badge_title = returnData.data[details].badge_title;
-					var reward = returnData.data[details].reward;
+					console.log(returnData.data[details].id);
+					var id = returnData.data.id;
+					var name = returnData.data.name;
+//					var street = returnData.data[details].street;
+//					var city = returnData.data[details].city;
+//					var zipcode = returnData.data[details].zipcode;
+//					var description = returnData.data[details].description;
+//					var start_date = returnData.data[details].start_date;
+//					var end_date = returnData.data[details].end_date;
+//					var badge_title = returnData.data[details].badge_title;
+//					var reward = returnData.data[details].reward;
 					
-					console.log(id);
-					console.log(name);
-					console.log(steet);
-					console.log(zipcode);
-					console.log(description);
-					console.log(start_date);
-					console.log(end_date);
-					console.log(badge_title);
-					console.log(reward);
-				}
+//					console.log(id);
+//					console.log(name);
+//					console.log(street);
+//					console.log(zipcode);
+//					console.log(description);
+//					console.log(start_date);
+//					console.log(end_date);
+//					console.log(badge_title);
+//					console.log(reward);
+//				}
 			}
 			// Display error
 			else{ console.log('Getting selected mission details\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }

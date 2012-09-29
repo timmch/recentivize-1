@@ -22,8 +22,45 @@
 </head>
 <body>
 <div id="mainWindow">
-	<div id="testData">
-		my data from php goes here
+	<div id="content">
+		<div id="user">
+			<div class="nameInfo">
+				Welcome <span class="name">(name here)</span>
+			</div>
+			<div class="userInfo">
+				<div class="avatar">
+					avatar
+				</div>
+				<div class="city">
+					city
+				</div>
+			</div>
+			<div class="levelInfo">
+				<div class="heading">Level</div>
+				<div class="levelIndicator">
+					<div class="level1 level highlight"></div>
+					<div class="level2 level"></div>
+					<div class="level3 level"></div>
+					<div class="level4 level"></div>
+					<div class="level5 level"></div>
+				</div>
+			</div>
+			<div class="goldInfo">
+				<div class="heading">Gold)</div>
+				<div class="gold">5000</div>
+			</div>
+		</div>
+		<div id="missions">
+			<div class="active">
+				Active missions
+			</div>
+			<div class="available">
+				Available missions
+			</div>
+			<div class="completed">
+				Completed missions
+			</div>
+		</div>
 	</div>
 </div>
 </body>

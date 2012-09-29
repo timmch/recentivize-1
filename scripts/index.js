@@ -11,8 +11,9 @@
 // =====================================================================================================================
 $(function() {
 	
-	getData();
-
+	setTimeout(function() {
+		getData();
+	}, 2000);
 });
 
 
@@ -52,7 +53,7 @@ function getData(){
 				console.log('• ' + returnData.msg);
 				
 				// Put the data in the page
-				$('#testData').text(returnData.data);
+//				$('#content').text(returnData.data);
 			}
 			// Display error
 			else{ console.log('Getting data\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
@@ -61,3 +62,47 @@ function getData(){
 		error	: function(){ console.log('ERROR: ajax/getData.php is busted!'); }
 	});
 }
+
+
+
+// =====================================================================================================================
+// Resize Containers
+// - Resizes containers to fit any users screen resolution
+// |	height()		= E			|	outerHeight() 		= E + P + B			|
+// |	innerHeight()	= E + P		|	outerHeight(true)	= E + P + B + M		|
+// =====================================================================================================================
+function resizeContainers() {
+	// mainWindow
+	// =======================================================
+//	var mainWindowHeight				= $('#mainWindow').innerHeight()
+//										- $('#mainHeader').outerHeight(true);
+//	$('#mainContent').height(mainContentHeight);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

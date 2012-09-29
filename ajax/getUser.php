@@ -11,7 +11,6 @@
 	$returnable = array();
 	$rowt = array();
 	while ($row = mysql_fetch_row($data)) {
-		$newarray[] = $row;
 		$rowt['id'] = $row[0];
 		$rowt['first_name'] = $row[1];
 		$rowt['last_name'] = $row[2];

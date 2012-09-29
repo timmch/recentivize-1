@@ -14,6 +14,7 @@
 		$rowt['first_name'] = $row[1];
 		$rowt['last_name'] = $row[2];
 		array_push($returnable, $rowt);
+		echo();
 	}
 	echo($returnable[0]['first_name']);
 	echo("//");

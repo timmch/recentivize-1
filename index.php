@@ -1,11 +1,13 @@
 <html>
 <head>
-	<title>Spestle</title>
+	<title>Recentivize</title>
 	
 	<?php require_once('initialize.php'); ?>
 	
 	<!-- Include jQuery Style Sheets -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/smoothness/jquery-ui-1.8.19.custom.css" />
+	
+	<meta name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=0.5; user-scalable=0;" />
 	
 	<!-- Include Our Style Sheets -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/main.css" />

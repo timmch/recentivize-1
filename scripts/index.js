@@ -14,6 +14,9 @@ $(function() {
 //	setTimeout(function() {
 		getUser();
 //	}, 2000);
+
+//	alert($('#mainWindow').outerHeight(true));
+//	alert($('#mainWindow').outerWidth(true));
 });
 
 

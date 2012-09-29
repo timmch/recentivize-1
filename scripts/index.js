@@ -19,8 +19,20 @@ $(function() {
 //	alert($('#mainWindow').outerHeight(true));
 //	alert($('#mainWindow').outerWidth(true));
 
-	$('#missions .active').on('click', '.mission', function() {
+	$('#missions').on('click', '.mission', function() {
 		console.log($(this).data('id'));
+		$('#profilePage').hide('slide', {direction: 'left', easing: 'easeOutExpo'}, 500, function () {
+			$('#missionPage').show('slide', {direction: 'left', easing: 'easeOutExpo'}, 500);
+			$('#navigationHeader .backButton').fadeIn(500);
+		});
+
+	});
+	
+	$('#navigationHeader .backButton').on('click', function() {
+		$('#missionPage').hide('slide', {direction: 'left', easing: 'easeOutExpo'}, 500, function () {
+			$('#profilePage').show('slide', {direction: 'left', easing: 'easeOutExpo'}, 500);
+			$('#navigationHeader .backButton').fadeOut(500);
+		});
 	});
 	
 });

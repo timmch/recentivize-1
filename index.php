@@ -26,18 +26,18 @@
 <body>
 <div id="mainWindow">
 	<div id="mainContainer">
-		<div id="navigationHeader">nav header</div>
+		<div id="navigationHeader">
+			<div class="backButton"></div>
+			<div class="logo"></div>
+		</div>
 		<div id="profilePage" class="mainPage">
 			<div id="user">
 				<div class="nameInfo">
 					Welcome <span class="name"></span>
 				</div>
 				<div class="basicInfo">
-					<div class="avatar">
-						avatar
-					</div>
-					<div class="city">
-					</div>
+					<div class="avatar"></div>
+					<div class="city"></div>
 				</div>
 				<div class="levelInfo">
 					<div class="heading">Level&nbsp;<span class="levelTitle">(Title)</span></div>

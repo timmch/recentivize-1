@@ -11,9 +11,9 @@
 // =====================================================================================================================
 $(function() {
 	
-	setTimeout(function() {
-		getData();
-	}, 2000);
+//	setTimeout(function() {
+		getUser();
+//	}, 2000);
 });
 
 
@@ -38,28 +38,38 @@ $(window).resize(function() {
 // Get Data
 // - Grabs some test data
 // =====================================================================================================================
-function getData(){
-	console.log('yep');
-	
+function getUser(){
 	$.ajax({
 		type	: 'POST',
-		url		: WEB_URL + 'ajax/getData.php',
+		url		: WEB_URL + 'ajax/getUser.php',
 		data	: { },
 		dataType: 'json',
 		success	: function(returnData){
 			// No error, go ahead
 			if(returnData.err == false){
-				console.log('Getting data\t\t\t\t - [SUCCESS]');
+				console.log('Getting user info\t\t\t\t - [SUCCESS]');
 				console.log('• ' + returnData.msg);
+//				console.log('• ' + returnData.data.city);
 				
-				// Put the data in the page
-//				$('#content').text(returnData.data);
+				// Populate the user info
+				$('#user .nameInfo .name').text(returnData.data.first_name);
+				$('#user .basicInfo .city').text(returnData.data.city);
+				
+				// TEMP*****
+				var level = 3;
+				
+				// Fill in the level indicator
+				if(level >= 1){ $('#user .level1').addClass('highlight'); }
+				if(level >= 2){ $('#user .level2').addClass('highlight'); }
+				if(level >= 3){ $('#user .level3').addClass('highlight'); }
+				if(level >= 4){ $('#user .level4').addClass('highlight'); }
+				if(level >= 5){ $('#user .level5').addClass('highlight'); }
 			}
 			// Display error
-			else{ console.log('Getting data\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
+			else{ console.log('Getting user info\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
 			
 		},
-		error	: function(){ console.log('ERROR: ajax/getData.php is busted!'); }
+		error	: function(){ console.log('ERROR: ajax/getUser.php is busted!'); }
 	});
 }
 

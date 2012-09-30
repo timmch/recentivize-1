@@ -2,11 +2,12 @@
 	$username = "timmch_root";
 	$password = "recentivize";
 	$hostname = "108.167.179.192"; 
+	$id = "'".$_POST['id']>"'";
 	$dbhandle = mysql_connect($hostname, $username, $password) 
 	  or die("Unable to connect to MySQL");
 
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
-	$data = mysql_query("SELECT * FROM users WHERE id = 1");
+	$data = mysql_query("SELECT * FROM users WHERE id = $id");
 
 	$returnable = array();
 	$rowt = array();

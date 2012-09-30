@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Recentivize</title>
-	<?php require_once('initialize.php'); ?>
+	<!-- <?php require_once('initialize.php'); ?> -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/login.css" />		
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/bootstrap.css" />	
 	<!-- Include jQuery Style Sheets -->

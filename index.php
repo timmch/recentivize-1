@@ -1,23 +1,22 @@
 <?php
-		session_start();
-?><html>
-<head>
-	<title>Recentivize</title>
-	<?php require_once('initialize.php');		
+	session_start();
+	require_once('initialize.php');		
 	$username = "timmch_root";
 	$password = "recentivize";
 	$hostname = "108.167.179.192";
 	$id = "'".$_SESSION['user_id']."'";  
-	$dbhandle = mysql_connect($hostname, $username, $password) 
-	  or die("Unable to connect to MySQL");
-
+	$dbhandle = mysql_connect($hostname, $username, $password);
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
-		// Redirect to login page if not logged in
 		if(!isset($_SESSION['loggedin'])){
-			?><meta http-equiv="Refresh" content="5; url=http://localhost/recentivize/login.php"><?php
-			exit;										/* Make sure that code below does not get executed when we redirect. */
+			header("Location: login.php");
+        	exit;
 		}
-	?>
+?>
+
+
+<html>
+<head>
+	<title>Recentivize</title>
 	
 	<!-- Include jQuery Style Sheets -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/smoothness/jquery-ui-1.8.19.custom.css" />

@@ -1,7 +1,5 @@
-
-
-
 <?php 
+session_start();
 	$username = "timmch_root";
 	$password = "recentivize";
 	$hostname = "108.167.179.192"; 
@@ -9,7 +7,6 @@
 	  or die("Unable to connect to MySQL");
 
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
-session_start();
 
 if ($_GET['register']) {
      // Only load the code below if the GET

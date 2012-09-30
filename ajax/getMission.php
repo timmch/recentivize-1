@@ -10,7 +10,7 @@
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
 	$activeMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=$id AND events.is_completed=0");
 	$completedMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=$id AND events.is_completed=1");
-	$availableMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON events.missions_id=missions.id WHERE missions.id NOT IN (SELECT missions_ID FROM events WHERE users_id=$id)");
+	$availableMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON events.missions_id=missions.id WHERE missions.id NOT IN (SELECT missions_ID FROM events WHERE users_id=$id) group by missions.id");
 	$returnable = array();
 	$rowt = array();
 	$activeM = array();

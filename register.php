@@ -51,7 +51,7 @@ require_once('header.php');?>
 
 			<h1>Making Volunteer Work Fun!</h1><br><br>
 			<form action="?register=1" method="post">
-			<input type="email" style="padding: 5px;" value="" name="email" class="email span4" placeholder="Email address..." required><br><input type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required><br><input type="password" value="" name="password2" class="password span4" id="mce-password" placeholder="Repeat Password..." required><br><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large">Register!</button>
+			<input type="text" style="padding: 5px;" value="" name="first_name" class="text span4" placeholder="First Name..." required><br><input type="email" style="padding: 5px;" value="" name="email" class="email span4" placeholder="Email address..." required><br><input type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required><br><input type="password" value="" name="password2" class="password span4" id="mce-password" placeholder="Repeat Password..." required><br><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large">Register!</button>
 			</form>
 		</div>
 	</div>

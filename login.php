@@ -13,15 +13,17 @@ if ($_GET['login']) {
      // variable 'login' is set. You will
      // set this when you submit the form
      $email = $_POST['email'];
-     $quer = "SELECT password FROM users WHERE email = '" . $email."'";
+     $quer = "SELECT password, id FROM users WHERE email = '" . $email."'";
      $users = mysql_query($quer);
-     $password = mysql_fetch_row($users);
-     $password = $password[0];
+     $user = mysql_fetch_row($users);
+     $password = $user[0];
+     $userID = $user[1];
      if ((sha1($_POST['password']) == $password) && ($email != NULL)) {
          // Load code below if both username
          // and password submitted are correct
  
          $_SESSION['loggedin'] = 1;
+         $_SESSION['user_id'] = $userID;
           // Set session variable
  
          header("Location: index.php");

@@ -27,6 +27,7 @@ if ($_GET['register']) {
          
 		 $register = mysql_query($quer); 		
          $_SESSION['loggedin'] = 1;
+         $_SESSION['user_id'] = mysql_insert_id();
           // Set session variable
  
          header("Location: index.php");

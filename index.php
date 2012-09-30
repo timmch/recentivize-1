@@ -9,7 +9,7 @@
 	$hostname = "108.167.179.192";
 	$id = "'".$_SESSION['user_id']."'";  
 	$dbhandle = mysql_connect($hostname, $username, $password) 
-	  or die("Unable to connect to MySQL");
+	  or die("Unable to connect to MySQL". mysql_error());
 
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
 		// Redirect to login page if not logged in

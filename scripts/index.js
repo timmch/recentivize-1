@@ -43,6 +43,9 @@ $(function() {
 			$('#mapInfo .addressInfo .address').text('');
 			$('#mapCanvas').html('');
 			
+			$('#acceptMission').hide();
+			$('#completeMission').hide();
+			
 			$('#profilePage').show('slide', {direction: 'left', easing: 'easeOutExpo'}, 500);
 			$('#navigationHeader .backButton').fadeOut(500);
 		});
@@ -324,6 +327,13 @@ function viewMission(id){
 				var reward = returnData.reward;
 				var status = returnData.status;
 				console.log(status);
+				
+				if(status == 'active'){
+					$('#completeMission').show();
+				}
+				else if(status == 'available'){
+					$('#acceptMission').show();
+				}
 				
 				$('#missionInfo .name').text(name);
 				$('#missionInfo .description').text(description);

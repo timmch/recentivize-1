@@ -94,7 +94,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 // ===================================================================================================================*/
 #user{
 	float: left;
-	width: 300px;
+	width: 270px;
 	background: #FFF;
 	border: 1px solid #000;
 	
@@ -115,12 +115,17 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 #user .basicInfo .avatar{
 	float: left;
-	width: 100px;
-	height: 100px;
+	width: 125px;
+	height: 150px;
 	
-	background: red;
 	
 	border: 1px solid #333;
+	
+	background				: url('../images/defaultProfilePic.jpeg');
+	-webkit-background-size	: 100% 100%;
+	   -moz-background-size	: 100% 100%;
+		 -o-background-size	: 100% 100%;
+			background-size : 100% 100%;
 }
 #user .basicInfo .city{
 	float: left;
@@ -189,7 +194,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 // ===================================================================================================================*/
 #missions{
 	float: right;
-	width: 300px;
+	width: 350px;
 }
 #missions .heading{
 	font-size: 30px;

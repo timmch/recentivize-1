@@ -91,9 +91,7 @@ function getUser(){
 				var gold = returnData.data.coins;
 				
 				if(firstName != null)	{ $('#user .nameInfo .name').text(firstName); }
-				else {
-					$('#user .nameInfo .name').text('Welcome');
-				}
+				else 					{ $('#user .nameInfo .name').text('Welcome'); }
 				if(city != null)		{ $('#user .basicInfo .city').text(city); }
 				else{
 					$('#user .basicInfo .city').text('City not set yet');

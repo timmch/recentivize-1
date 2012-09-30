@@ -47,7 +47,8 @@
 		<div id="profilePage" class="mainPage">
 			<div id="user">
 				<div class="nameInfo">
-					<span class="name"></span>
+					<div class="name"></div>
+					<div class="logout">LOGOUT</div>
 				</div>
 				<div class="basicInfo">
 					<div class="avatar"></div>

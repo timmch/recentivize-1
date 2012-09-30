@@ -1,12 +1,13 @@
 <?php
 	$username = "timmch_root";
 	$password = "recentivize";
-	$hostname = "108.167.179.192"; 
+	$hostname = "108.167.179.192";
+	$id = "'".$_SESSION['user_id']."'"; 
 	$dbhandle = mysql_connect($hostname, $username, $password) 
 	  or die("Unable to connect to MySQL");
 
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
-	$trophies = mysql_query("SELECT missions.id, missions.badge_title FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=1 AND events.is_completed=1");
+	$trophies = mysql_query("SELECT missions.id, missions.badge_title FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=$id AND events.is_completed=1");
 
 	$rowt = array();
 	$returnable = array();

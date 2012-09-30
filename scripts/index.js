@@ -92,7 +92,7 @@ function getUser(){
 				
 				if(firstName != null)	{ $('#user .nameInfo .name').text(firstName); }
 				else {
-					$('#user .nameInfo .name').text('no name yet');
+					$('#user .nameInfo .name').text('Welcome');
 				}
 				if(city != null)		{ $('#user .basicInfo .city').text(city); }
 				else{

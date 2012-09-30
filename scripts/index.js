@@ -11,7 +11,7 @@ var missionCountdownInterval;
 // =====================================================================================================================
 $(function() {
 
-	getUser(userID);
+	getUser();
 	getMission();
 
 //	alert($('#mainWindow').outerHeight(true));
@@ -73,11 +73,11 @@ $(window).resize(function() {
 // Get User
 // - Grabs user info
 // =====================================================================================================================
-function getUser(id){
+function getUser(){
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/getUser.php',
-		data	: { id: id},
+		data	: { },
 		dataType: 'json',
 		success	: function(returnData){
 			// No error, go ahead
@@ -86,9 +86,19 @@ function getUser(id){
 				console.log('• ' + returnData.msg);
 				
 				// Populate the user info
-				$('#user .nameInfo .name').text(returnData.data.first_name);
-				$('#user .basicInfo .city').text(returnData.data.city);
-				$('#user .goldInfo .gold').text(returnData.data.coins);
+				var firstName = returnData.data.first_name;
+				var city = returnData.data.city;
+				var gold = returnData.data.coins;
+				
+				if(firstName != null)	{ $('#user .nameInfo .name').text(firstName); }
+				else {
+					$('#user .nameInfo .name').text('no name yet');
+				}
+				if(city != null)		{ $('#user .basicInfo .city').text(city); }
+				else{
+					$('#user .basicInfo .city').text('City not set yet');
+				}
+				$('#user .goldInfo .gold').text(gold);
 				
 				// Fill in the level indicator & title
 				var level1Tooltip = returnData.data.level_title_1;
@@ -104,98 +114,62 @@ function getUser(id){
 				if(level >= 4){ $('#user .level4').addClass('highlight'); $('#user .levelTitle').text('('+level4Tooltip+')'); }
 				if(level >= 5){ $('#user .level5').addClass('highlight'); $('#user .levelTitle').text('('+level5Tooltip+')'); }
 				
-				
-				
+				// Setup Level Tooltips
 				$('#user .level1').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
-					content: {
-						text: level1Tooltip,
-					},
+					content: { text: level1Tooltip, },
 					style: {
 						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
 						tip: true,
 						width: '150px',
 					},
-					position: {
-						my: 'bottom left', 
-						at: 'top center'
-					},
-					show: {
-						event: 'mouseover',
-					},
-				}, event); // Pass through our original event to qTip
+					position: { my: 'bottom left',  at: 'top center' },
+					show: { event: 'mouseover', },
+				}, event);					// Pass through our original event to qTip
 				$('#user .level2').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
-					content: {
-						text: level2Tooltip,
-					},
+					content: { text: level2Tooltip,	},
 					style: {
-						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-						tip: true,
-						width: '150px',
-					},
-					position: {
-						my: 'bottom left', 
-						at: 'top center'
-					},
-					show: {
-						event: 'mouseover',
-					},
-				}, event); // Pass through our original event to qTip
+							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+							tip: true,
+							width: '150px',
+						},
+						position: { my: 'bottom left',  at: 'top center' },
+						show: { event: 'mouseover', },
+					}, event);					// Pass through our original event to qTip
 				$('#user .level3').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
-					content: {
-						text: level3Tooltip,
-					},
+					content: { text: level3Tooltip,	},
 					style: {
-						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-						tip: true,
-						width: '150px',
-					},
-					position: {
-						my: 'bottom left', 
-						at: 'top center'
-					},
-					show: {
-						event: 'mouseover',
-					},
-				}, event); // Pass through our original event to qTip
+							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+							tip: true,
+							width: '150px',
+						},
+						position: { my: 'bottom left',  at: 'top center' },
+						show: { event: 'mouseover', },
+					}, event);					// Pass through our original event to qTip
 				$('#user .level4').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
-					content: {
-						text: level4Tooltip,
-					},
+					content: { text: level4Tooltip,	},
 					style: {
-						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-						tip: true,
-						width: '150px',
-					},
-					position: {
-						my: 'bottom left', 
-						at: 'top center'
-					},
-					show: {
-						event: 'mouseover',
-					},
-				}, event); // Pass through our original event to qTip
+							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+							tip: true,
+							width: '150px',
+						},
+						position: { my: 'bottom left',  at: 'top center' },
+						show: { event: 'mouseover', },
+					}, event);					// Pass through our original event to qTip
 				$('#user .level5').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
-					content: {
-						text: level5Tooltip,
-					},
+					content: { text: level5Tooltip, },
 					style: {
-						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-						tip: true,
-						width: '150px',
-					},
-					position: {
-						my: 'bottom left', 
-						at: 'top center'
-					},
-					show: {
-						event: 'mouseover',
-					},
-				}, event); // Pass through our original event to qTip
+							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+							tip: true,
+							width: '150px',
+						},
+						position: { my: 'bottom left',  at: 'top center' },
+						show: { event: 'mouseover', },
+					}, event);					// Pass through our original event to qTip
 			}
 			// Display error
 			else{ console.log('Getting user info\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
@@ -210,8 +184,6 @@ function getUser(id){
 // - Grabs active/available/completed missions
 // =====================================================================================================================
 function getMission(){
-console.log('yep');
-	
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/getMission.php',

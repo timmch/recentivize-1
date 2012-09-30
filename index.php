@@ -93,12 +93,11 @@
 			</div>
 		</div>
 		<div id="missionPage" class="mainPage">
+			<div id="missionName"></div>
+			<div id="descriptionInfo">
+				<div class="description"></div>
+			</div>
 			<div id="missionInfo">
-				<div class="name"></div>
-				<div class="descriptionInfo">
-<!--					<div class="heading">Description</div>-->
-					<div class="description"></div>
-				</div>
 				<div class="timeLeftInfo">
 					<div class="heading">Time Remaining</div>
 					<div class="timeLeft"></div>
@@ -111,16 +110,19 @@
 					<div id="mapCanvas"></div>
 				</div>
 				<div class="rewardsInfo">
-					<div class="heading">Earn this badge</div>
+					<div class="heading">Earn this Badge</div>
 					<div class="badgeTitle"></div>
 					<div class="badge"></div>
-					<div class="heading">Earn this reward</div>
+					<div class="heading">Earn this Reward</div>
 					<div class="reward"></div>
 				</div>
 				
 			</div>
-			<div id="acceptMission">Accept Mission</div>
-			<div id="completeMission">Complete Mission</div>
+			<div id="missionButtons">
+				<div class="accept button">Accept Mission</div>
+				<div class="complete button">Complete Mission</div>
+				<div class="message"></div>
+			</div>
 		</div>
 	</div>
 </div>

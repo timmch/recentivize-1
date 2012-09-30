@@ -44,8 +44,9 @@ $(function() {
 			$('#mapInfo .addressInfo .address').text('');
 			$('#mapCanvas').html('');
 			
-			$('#acceptMission').hide();
-			$('#completeMission').hide();
+			$('#missionButtons .accept').hide();
+			$('#missionButtons .complete').hide();
+			$('#missionButtons .message').text('').hide();
 			
 			$('#profilePage').show('slide', {direction: 'left', easing: 'easeOutExpo'}, 500);
 			$('#navigationHeader .backButton').fadeOut(500);
@@ -137,46 +138,46 @@ function getUser(){
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
 					content: { text: level2Tooltip,	},
 					style: {
-							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-							tip: true,
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
 							width: '150px',
-						},
-						position: { my: 'bottom left',  at: 'top center' },
-						show: { event: 'mouseover', },
-					}, event);					// Pass through our original event to qTip
+					},
+					position: { my: 'bottom left',  at: 'top center' },
+					show: { event: 'mouseover', },
+				}, event);					// Pass through our original event to qTip
 				$('#user .level3').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
 					content: { text: level3Tooltip,	},
 					style: {
-							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-							tip: true,
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
 							width: '150px',
-						},
-						position: { my: 'bottom left',  at: 'top center' },
-						show: { event: 'mouseover', },
-					}, event);					// Pass through our original event to qTip
+					},
+					position: { my: 'bottom left',  at: 'top center' },
+					show: { event: 'mouseover', },
+				}, event);					// Pass through our original event to qTip
 				$('#user .level4').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
 					content: { text: level4Tooltip,	},
 					style: {
-							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-							tip: true,
-							width: '150px',
-						},
-						position: { my: 'bottom left',  at: 'top center' },
-						show: { event: 'mouseover', },
-					}, event);					// Pass through our original event to qTip
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '150px',
+					},
+					position: { my: 'bottom left',  at: 'top center' },
+					show: { event: 'mouseover', },
+				}, event);					// Pass through our original event to qTip
 				$('#user .level5').qtip({
 					overwrite: false,		// Make sure the tooltip won't be overridden once created
 					content: { text: level5Tooltip, },
 					style: {
-							classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
-							tip: true,
-							width: '150px',
-						},
-						position: { my: 'bottom left',  at: 'top center' },
-						show: { event: 'mouseover', },
-					}, event);					// Pass through our original event to qTip
+						classes: 'ui-tooltip-rounded ui-tooltip-tipsy ui-tooltip-shadow',
+						tip: true,
+						width: '150px',
+					},
+					position: { my: 'bottom left',  at: 'top center' },
+					show: { event: 'mouseover', },
+				}, event);					// Pass through our original event to qTip
 			}
 			// Display error
 			else{ console.log('Getting user info\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
@@ -306,21 +307,34 @@ function viewMission(id){
 				console.log(status);
 				
 				if(status == 'active'){
-					$('#completeMission').show();
+					$('#missionButtons .complete').text('Complete Mission').show();
+					
+					$('#missionButtons .complete').on('click', function () {
+						completeMission(id);
+						$(this).off().fadeOut(500, function () {
+							$('#missionButtons .message').text('Completed!').fadeIn(2000);
+						});
+					});
 				}
 				else if(status == 'available'){
-					$('#acceptMission').show();
+					$('#missionButtons .accept').text('Accept Mission').show();
+					
+					$('#missionButtons .accept').on('click', function () {
+						acceptMission(id);
+						$(this).off().fadeOut(500, function () {
+							$('#missionButtons .message').text('Accepted!').fadeIn(2000);
+						});
+					});
 				}
 				
-				$('#missionInfo .name').text(name);
-				$('#missionInfo .description').text(description);
+				$('#missionName').text(name);
+				$('#descriptionInfo .description').text(description);
 				$('#missionInfo .badgeTitle').text(badgeTitle);
 				$('#missionInfo .reward').text(reward);
 				
 				$('#missionInfo .badge').css({'background': 'url(' + WEB_URL + '/images/badges/' + id + '.png)',
 											'-webkit-background-size': '100% 100%', '-moz-background-size': '100% 100%',
 											'-o-background-size': '100% 100%', 'background-size': '100% 100%', });
-				
 				
 				// Setup countdown
 				var startDate = new Date(returnData.start_date);
@@ -380,11 +394,44 @@ function viewMission(id){
 	});
 }
 
+// =====================================================================================================================
+// Accept Mission
+// - Accepts a mission and changes its state
+// =====================================================================================================================
+function acceptMission(id){
+	console.log('accepting mission: ' + id);
+	$.ajax({
+		type	: 'POST',
+		url		: WEB_URL + 'ajax/activateMission.php',
+		data	: { id: id },
+		dataType: 'json',
+		success	: function(){
+		},
+		error	: function(){ console.log('ERROR: ajax/activateMission.php is busted!'); }
+	});
+}
+// =====================================================================================================================
+// Complete Mission
+// - Completes a mission and changes its state
+// =====================================================================================================================
+function completeMission(id){
+	console.log('completing mission: ' + id);
+	$.ajax({
+		type	: 'POST',
+		url		: WEB_URL + 'ajax/completeMission.php',
+		data	: { id: id },
+		dataType: 'json',
+		success	: function(){
+		},
+		error	: function(){ console.log('ERROR: ajax/completeMission.php is busted!'); }
+	});
+}
 
 
-
-
-
+// =====================================================================================================================
+// Mission Countdown
+// - Updates the countdown timer for missions
+// =====================================================================================================================
 function missionCountdown(endDate) {
 	var epocSeconds = new Date().getTime() / 1000;				
 	
@@ -397,11 +444,11 @@ function missionCountdown(endDate) {
 	var minutes = Math.floor((timeLeftSeconds - (days * 86400) - (hours * 3600)) / 60);
 	var seconds = Math.floor(timeLeftSeconds - (days * 86400) - (hours * 3600) - (minutes * 60));
 	
-	if (days	< 10) {days	   = "0"+days;}
+//	if (days	< 10) {days	   = "0"+days;}
 	if (hours   < 10) {hours   = "0"+hours;}
 	if (minutes < 10) {minutes = "0"+minutes;}
 	if (seconds < 10) {seconds = "0"+seconds;}
-	var timeLeft = days+' days ' + hours + ':' + minutes + ':' + seconds;
+	var timeLeft = days+' days & ' + hours + ':' + minutes + ':' + seconds;
 
 	return timeLeft;
 }

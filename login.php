@@ -4,14 +4,19 @@
 	$hostname = "108.167.179.192"; 
 	$dbhandle = mysql_connect($hostname, $username, $password) 
 	  or die("Unable to connect to MySQL");
-
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
 session_start();
  
 if ($_GET['login']) {
      // Only load the code below if the GET
      // variable 'login' is set. You will
-     // set this when you submit the form
+     // set this when you submit the 
+ 	$username = "timmch_root";
+	$password = "recentivize";
+	$hostname = "108.167.179.192";
+	$id = "'".$_SESSION['user_id']."'";  
+	$dbhandle = mysql_connect($hostname, $username, $password) 
+	  or die("Unable to connect to MySQL");
      $email = $_POST['email'];
      $quer = "SELECT password, id FROM users WHERE email = '" . $email."'";
      $users = mysql_query($quer);

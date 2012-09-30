@@ -4,6 +4,14 @@
 <head>
 	<title>Recentivize</title>
 	<?php require_once('initialize.php');		
+	$username = "timmch_root";
+	$password = "recentivize";
+	$hostname = "108.167.179.192";
+	$id = "'".$_SESSION['user_id']."'";  
+	$dbhandle = mysql_connect($hostname, $username, $password) 
+	  or die("Unable to connect to MySQL");
+
+	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
 		// Redirect to login page if not logged in
 		if(!isset($_SESSION['loggedin'])){
 			?><meta http-equiv="Refresh" content="5; url=http://localhost/recentivize/login.php"><?php

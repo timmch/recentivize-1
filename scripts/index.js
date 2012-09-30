@@ -10,11 +10,9 @@ var missionCountdownInterval;
 // Run after DOM is ready
 // =====================================================================================================================
 $(function() {
-	
-//	setTimeout(function() {
-		getUser();
-		getMission();
-//	}, 2000);
+
+	getUser(userID);
+	getMission();
 
 //	alert($('#mainWindow').outerHeight(true));
 //	alert($('#mainWindow').outerWidth(true));
@@ -75,11 +73,11 @@ $(window).resize(function() {
 // Get User
 // - Grabs user info
 // =====================================================================================================================
-function getUser(){
+function getUser(id){
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/getUser.php',
-		data	: { },
+		data	: { id: id},
 		dataType: 'json',
 		success	: function(returnData){
 			// No error, go ahead

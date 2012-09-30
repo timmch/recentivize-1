@@ -46,6 +46,7 @@ $(function() {
 			
 			$('#missionButtons .accept').hide();
 			$('#missionButtons .complete').hide();
+			$('#missionButtons .message').text('').hide();
 			
 			$('#profilePage').show('slide', {direction: 'left', easing: 'easeOutExpo'}, 500);
 			$('#navigationHeader .backButton').fadeOut(500);
@@ -306,10 +307,24 @@ function viewMission(id){
 				console.log(status);
 				
 				if(status == 'active'){
-					$('#missionButtons .complete').show();
+					$('#missionButtons .complete').text('Complete Mission').show();
+					
+					$('#missionButtons .complete').on('click', function () {
+						completeMission(id);
+						$(this).off().fadeOut(500, function () {
+							$('#missionButtons .message').text('Completed!').fadeIn(2000);
+						});
+					});
 				}
 				else if(status == 'available'){
-					$('#missionButtons .accept').show();
+					$('#missionButtons .accept').text('Accept Mission').show();
+					
+					$('#missionButtons .accept').on('click', function () {
+						acceptMission(id);
+						$(this).off().fadeOut(500, function () {
+							$('#missionButtons .message').text('Accepted!').fadeIn(2000);
+						});
+					});
 				}
 				
 				$('#missionName').text(name);
@@ -320,7 +335,6 @@ function viewMission(id){
 				$('#missionInfo .badge').css({'background': 'url(' + WEB_URL + '/images/badges/' + id + '.png)',
 											'-webkit-background-size': '100% 100%', '-moz-background-size': '100% 100%',
 											'-o-background-size': '100% 100%', 'background-size': '100% 100%', });
-				
 				
 				// Setup countdown
 				var startDate = new Date(returnData.start_date);
@@ -380,11 +394,44 @@ function viewMission(id){
 	});
 }
 
+// =====================================================================================================================
+// Accept Mission
+// - Accepts a mission and changes its state
+// =====================================================================================================================
+function acceptMission(id){
+	console.log('accepting mission: ' + id);
+	$.ajax({
+		type	: 'POST',
+		url		: WEB_URL + 'ajax/activateMission.php',
+		data	: { id: id },
+		dataType: 'json',
+		success	: function(){
+		},
+		error	: function(){ console.log('ERROR: ajax/activateMission.php is busted!'); }
+	});
+}
+// =====================================================================================================================
+// Complete Mission
+// - Completes a mission and changes its state
+// =====================================================================================================================
+function completeMission(id){
+	console.log('completing mission: ' + id);
+	$.ajax({
+		type	: 'POST',
+		url		: WEB_URL + 'ajax/completeMission.php',
+		data	: { id: id },
+		dataType: 'json',
+		success	: function(){
+		},
+		error	: function(){ console.log('ERROR: ajax/completeMission.php is busted!'); }
+	});
+}
 
 
-
-
-
+// =====================================================================================================================
+// Mission Countdown
+// - Updates the countdown timer for missions
+// =====================================================================================================================
 function missionCountdown(endDate) {
 	var epocSeconds = new Date().getTime() / 1000;				
 	

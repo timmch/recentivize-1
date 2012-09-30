@@ -158,7 +158,7 @@ function getUser(){
 				var firstName = returnData.data.first_name;
 				var city = returnData.data.city;
 				var gold = returnData.data.coins;
-				console.log('gold' + gold)
+				console.log('gold' + gold);
 				
 				if(firstName != null)	{ $('#user .nameInfo .name').text(firstName); }
 				else 					{ $('#user .nameInfo .name').text('Welcome'); }

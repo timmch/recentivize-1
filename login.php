@@ -60,6 +60,7 @@ require_once('header.php');?>
 			<br>
 <!--	<a href="http://zxing.appspot.com/scan?ret=http://foo.com/products/{CODE}/description&SCAN_FORMATS=UPC_A,EAN_13">here</a> -->
 			<div style="text-align:center;">
+				<br>
 				<p style="text-align:center;"><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
 			</div>
 	</div>

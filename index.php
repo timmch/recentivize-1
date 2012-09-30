@@ -1,15 +1,12 @@
-<html>
+<?php
+		session_start();
+?><html>
 <head>
 	<title>Recentivize</title>
-	
-	<?php require_once('initialize.php'); ?>
-	
-	<?php
-		session_start();
-		
+	<?php require_once('initialize.php');		
 		// Redirect to login page if not logged in
 		if(!isset($_SESSION['loggedin'])){
-			header("Location: ".WEB_URL."login.php");	/* Redirect browser */
+			?><meta http-equiv="Refresh" content="5; url=http://localhost/recentivize/login.php"><?php
 			exit;										/* Make sure that code below does not get executed when we redirect. */
 		}
 	?>
@@ -124,3 +121,5 @@
 	</div>
 </div>
 </body>
+<?php
+?>

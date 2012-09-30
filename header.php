@@ -1,3 +1,5 @@
+<?php
+?>
 <html>
 <head>
 	<title>Recentivize</title>
@@ -33,3 +35,5 @@
 	</script>
 </head>
 <body>
+<?php
+?>

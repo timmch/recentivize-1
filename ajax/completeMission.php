@@ -10,12 +10,14 @@
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
 	$result = mysql_query("SELECT points FROM users where id = $id");
 	$result2 = mysql_query("SELECT points FROM missions where id = $missionID");
+	$result3 = mysql_query("SELECT coins FROM users where id = $id");
 	$row = mysql_fetch_row($result);
 	$row2 = mysql_fetch_row($result2);
-	echo($row[0]);
-	echo($row2[0]);
+	$row3 = mysql_fetch_row($result3);
 	$points = $row[0] + $row2[0];
+	$coins = $row3[0] + $row2[0];
 	$mission = mysql_query("UPDATE events SET is_completed = 1 where events.users_id = $id AND events.missions_id = $missionID");
 	$mission = mysql_query("UPDATE users SET is_completed = 1 where events.users_id = $id AND events.missions_id = $missionID");
 	$mission = mysql_query("UPDATE users SET points = $points where users.id = $id");
+	$mission = mysql_query("UPDATE users SET coins = $points where users.id = $id");
 ?>

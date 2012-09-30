@@ -42,7 +42,7 @@ require_once('header.php');?>
 	</div>
 	<div id="splashBox" class="clear">
 		<div id="signUpEmail">
-		<img src="<?php echo WEB_URL; ?>images/recentivize2.png" alt="Smiley face" height="184" width="800">
+		<img src="<?php echo WEB_URL; ?>images/logo.png" alt="Smiley face" height="184" width="800">
 
 			<h1>Making Volunteer Work Fun!</h1><br><br>
 			<form action="?login=1" method="post">

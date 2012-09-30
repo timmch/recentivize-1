@@ -41,14 +41,23 @@ require_once('header.php');?>
 <div id="mainContainer">
 <div id="topSplash" class="darkGradient">
 		<img src="<?php echo WEB_URL; ?>images/logo.png" alt="Smiley face" height="40" width="650" margin:0 auto;>
-			<h1 style="text-align:center;">Making Volunteer Work Fun!</h1><br><br>
+			<h1 style="text-align:center;"><FONT COLOR="ffffff">Making Volunteer Work Fun!</FONT></h1><br><br>
 			<form action="?login=1" method="post">
-			<div  style="border:1px solid red;">
-				<input  type="email" style="padding:20px 10px;font-size:1.4em; margin:0 auto; align:center;" value="" name="email" class="email span4" placeholder="Email address..." required >
+			<div  style="text-align:center;">
+				<input  type="email" style="padding:20px 10px;font-size:1.4em; align:center;" value="" name="email" class="email span4" placeholder="Email address..." required >
 			</div>
-			<br><input style="padding:20px 10px;font-size:1.4em;" type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required><br><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large" data-theme="b">Log In!</button>
+			<div style="text-align:center;">
+			<input style="padding:20px 10px;font-size:1.4em;" type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required>
+			</div>
+			<div style="text-align:center;">
+			<button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large" style="width:288px;" >Log In!</button>
+			</div>
 			</form>
-	<a href="http://zxing.appspot.com/scan?ret=http://foo.com/products/{CODE}/description&SCAN_FORMATS=UPC_A,EAN_13">here</a>
+			<div style="text-align:center;">
+			<a href="<?php echo WEB_URL; ?>register.php">Register</a>
+			</div>
+<!--	<a href="http://zxing.appspot.com/scan?ret=http://foo.com/products/{CODE}/description&SCAN_FORMATS=UPC_A,EAN_13">here</a> -->
+	<br>
 	<div class="container marginTop">
 		<p><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
 	</div>

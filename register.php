@@ -1,3 +1,6 @@
+
+
+
 <?php 
 	$username = "timmch_root";
 	$password = "recentivize";
@@ -12,19 +15,20 @@ if ($_GET['register']) {
      // Only load the code below if the GET
      // variable 'login' is set. You will
      // set this when you submit the form
-     $email = $_POST['email'];
+     $email = "'".$_POST['email']."'";
      $quer = "SELECT email FROM users WHERE email = '" . $email."'";
      $users = mysql_query($quer);
      $foundEmail = mysql_fetch_row($users);
      $foundEmail = $foundEmail[0];
      $password = $_POST['password'];
-     $first_name = $_POST['first_name'];
+     $first_name = "'".$_POST['first_name']."'";
      $password2 = $_POST['password2'];
      if (   ($password == $password2) && ($foundEmail == NULL)  ) {
          // Load code below if both username
          // and password submitted are correct
          $password = sha1($password);
-         $quer = "INSERT INTO users (email, password, first_name) VALUES  ('" . $email . "', '" . $password . "')";
+         $password = "'".$password."'";
+         $quer = "INSERT INTO users (email, password, first_name) VALUES  ($email , $password, $first_name)";
          
 		 $register = mysql_query($quer); 		
          $_SESSION['loggedin'] = 1;
@@ -42,30 +46,34 @@ if ($_GET['register']) {
 
 require_once('header.php');?>
 
-<div id="topSplash" class="darkGradient">
-	<div id="loginNav">
-		<a class="pull-right" href="<?php echo WEB_URL; ?>login.php">Login</a>
-	</div>
-	<div id="splashBox" class="clear">
-		<div id="signUpEmail">
+<div id="mainWindow">
+<div id="mainContainer">
+<div id="topSplash2" class="darkGradient">
 		<img src="<?php echo WEB_URL; ?>images/logo.png" alt="Smiley face" height="184" width="800">
-
-			<h1>Making Volunteer Work Fun!</h1><br><br>
+			<h1 style="text-align:center;"><FONT COLOR="ffffff">Making Volunteer Work Fun!</FONT></h1><br><br>
 			<form action="?register=1" method="post">
-			<input type="text" style="padding: 5px;" value="" name="first_name" class="text span4" placeholder="First Name..." required><br><input type="email" style="padding: 5px;" value="" name="email" class="email span4" placeholder="Email address..." required><br><input type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required><br><input type="password" value="" name="password2" class="password span4" id="mce-password" placeholder="Repeat Password..." required><br><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large">Register!</button>
+				<div  style="text-align:center;">
+					<input type="text" style="padding:20px 10px;font-size:1.4em;" value="" name="first_name" class="text span4" placeholder="First Name..." required>
+				</div>
+				<div style="text-align:center;">
+					<input type="email" style="padding:20px 10px;font-size:1.4em;" value="" name="email" class="email span4" placeholder="Email address..." required>		
+				</div>	
+				<div style="text-align:center;">
+				<input style="padding:20px 10px;font-size:1.4em;" type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required>
+				</div>
+				<div style="text-align:center;">
+					<input type="password" value="" name="password2" class="password span4" id="mce-password" placeholder="Repeat Password..." required style="padding:20px 10px;font-size:1.4em;">			
+				</div>
+				<div style="text-align:center;">
+				<button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large" style="width:288px;" >Register!</button>
+				</div>
 			</form>
-		</div>
-	</div>
+			<div style="text-align:center;">
+			<a href="<?php echo WEB_URL; ?>login.php">Login</a>
+			</div>			
 	<div class="container marginTop">
-		<p style="position: relative;right:6px;"><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
+		<p><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
 	</div>
-
-<!--
-Log in:
-<form action="?register=1" method="post">
-Email: <input type="text" name="email" />
-Password: <input type="password" name="password" />
-Confirm Password: <input type="password" name="password2" />
-<input type="submit" />
-</form>
--->
+</div>
+</div>
+</div>

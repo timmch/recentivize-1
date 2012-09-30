@@ -73,6 +73,13 @@
 	width:100%;
 }
 
+#topSplash2 {
+	margin: 0;
+	padding-top: 30px;
+	height:588px;
+	width:100%;
+}
+
 #bottomSplash {
 	width: 100%;
 	background: #eee;

@@ -197,6 +197,11 @@ function getUser(){
 // - Grabs active/available/completed missions
 // =====================================================================================================================
 function getMission(){
+	// Clear the missions before repopulating
+	$('#missions .active .missionList').html('');
+	$('#missions .available .missionList').html('');
+	$('#missions .completed .missionList').html('');
+
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/getMission.php',

@@ -15,7 +15,7 @@ $(function() {
 	// ==============================================================
 	getUser();
 	getMission();
-//	getTrophies();
+	getTrophies();
 
 	// Clicking on Missions
 	// ==============================================================
@@ -36,7 +36,7 @@ $(function() {
 		$('#missionPage').hide('slide', {direction: 'left', easing: 'easeOutExpo'}, 500, function () {
 			// Repopulate info
 			getMission();
-//			getTrophies();
+			getTrophies();
 		
 			// Clear all the values
 			clearInterval(missionCountdownInterval);
@@ -234,6 +234,8 @@ function getMission(){
 					$('#missions .active .missionList').append(mission);
 					count++;
 				}
+				if(count == 1){ $('#missions .active .missionList').html('No active missions<br>Choose one from the available list'); }
+				
 				// Grab all the available missions
 				count = 1;
 				for(mission in returnData.data.available)
@@ -255,6 +257,8 @@ function getMission(){
 					$('#missions .available .missionList').append(mission);
 					count++;
 				}
+				if(count == 1){ $('#missions .available .missionList').html('No available missions, check back later'); }
+				
 				// Grab all the completed missions
 				count = 1;
 				for(mission in returnData.data.completed)
@@ -276,6 +280,7 @@ function getMission(){
 					$('#missions .completed .missionList').append(mission);
 					count++;
 				}
+				if(count == 1){ $('#missions .completed .missionList').html('No complete missions yet'); }
 				
 			}
 			// Display error
@@ -444,6 +449,7 @@ function completeMission(id){
 // - Grabs all trophies that you have
 // =====================================================================================================================
 function getTrophies(){
+	$('#trophies .trophyList').html('');
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/getTrophies.php',
@@ -456,25 +462,20 @@ function getTrophies(){
 				console.log('• ' + returnData.msg);
 				
 				// Grab all the active missions
-				var count = 1;
-				for(mission in returnData.data.active)
+				for(trophies in returnData.data)
 				{
-					var id = returnData.data.active[mission].id;
-					var name = returnData.data.active[mission].name;
+					var id = returnData.data[trophies].id;
+					var title = returnData.data[trophies].title;
 					
-					// Even Row
-					if (count%2 == 0){
-						var mission = $('<div class="mission even">'+ name +'</div>');
-					}
-					// Odd Row
-					else{
-						var mission = $('<div class="mission odd">'+ name +'</div>');
-					}
+					console.log('trophy: ' + id + ' ' + title);
 					
-					mission.data('id', id);
+					var trophy = $('<div class="trophy"></div>');
+					trophy.css({'background': 'url(' + WEB_URL + '/images/badges/' + id + '.png)',
+								'-webkit-background-size': '100% 100%', '-moz-background-size': '100% 100%',
+								'-o-background-size': '100% 100%', 'background-size': '100% 100%', });
 					
-					$('#missions .active .missionList').append(mission);
-					count++;
+					
+					$('#trophies .trophyList').append(trophy);
 				}				
 			}
 			// Display error

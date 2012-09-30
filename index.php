@@ -86,9 +86,6 @@
 			<div id="trophies">
 				<div class="heading">Your Badges</div>
 				<div class="trophyList">
-					<div class="trophy">1</div>
-					<div class="trophy">2</div>
-					<div class="trophy">3</div>
 				</div>
 			</div>
 		</div>

@@ -10,14 +10,19 @@
 
 	$activeMissions = mysql_query("SELECT missions.id FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=1 AND events.is_completed=0 AND missions.id = $missionID");
 	$completedMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON missions.id=events.missions_id WHERE events.users_id=1 AND events.is_completed=1 AND missions.id = $missionID");
-	$availableMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON events.missions_id=missions.id WHERE missions.id NOT IN (SELECT missions_ID FROM events WHERE users_id=1 AND id = $missionID)");
-
+	$availableMissions = mysql_query("SELECT missions.id, missions.name FROM missions LEFT JOIN events ON events.missions_id=missions.id WHERE missions.id NOT IN (SELECT missions_ID FROM events WHERE users_id=1) AND missions.id = $missionID");
+	$activeMissions = mysql_fetch_row($activeMissions);
+	$availableMissions = mysql_fetch_row($availableMissions);
+	$completedMissions = mysql_fetch_row($completedMissions);
+	$completedMissions = $completedMissions[0];
+	$availableMissions = $availableMissions[0];
+	$activeMissions = $activeMissions[0];
 	$compare = array();
-	if($activeMissions!= $compare)
+	if($activeMissions!= NULL)
 	{
 		$output['status'] = 'active';
 	}
-	elseif($completedMissions != $compare)
+	elseif($completedMissions != NULL)
 	{
 		$output['status'] = 'complete';
 	}

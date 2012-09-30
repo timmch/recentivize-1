@@ -11,11 +11,16 @@ var missionCountdownInterval;
 // =====================================================================================================================
 $(function() {
 
+	resizeContainers();
+
 	// Populate User info & Missions
 	// ==============================================================
 	getUser();
 	getMission();
 	getTrophies();
+	
+//	alert($('#mainWindow').outerHeight(true));
+//	alert($('#mainWindow').outerWidth(true));
 
 	// Clicking on Missions
 	// ==============================================================
@@ -74,7 +79,56 @@ $(function() {
 // =====================================================================================================================
 $(window).resize(function() {
 	
+	resizeContainers();
 });
+
+// =====================================================================================================================
+// Resize Containers
+// - Resizes containers to fit any users screen resolution
+// |	height()		= E			|	outerHeight() 		= E + P + B			|
+// |	innerHeight()	= E + P		|	outerHeight(true)	= E + P + B + M		|
+// =====================================================================================================================
+function resizeContainers() {
+	var padding = 5;
+
+	// mainContainer
+	// =======================================================
+	var mainContainerHeight				= $('#mainWindow').outerHeight(true);
+//	console.log('mainContainerHeight: ' + mainContainerHeight);
+
+	var mainContainerWidth				= $('#mainWindow').outerWidth(true);
+//	console.log('mainContainerWidth: ' + mainContainerWidth);
+	$('#mainContainer').width(mainContainerWidth);
+	
+	if(mainContainerHeight <= 712)	{ $('#mainContainer').height(712); }
+	else							{ $('#mainContainer').height(mainContainerHeight); }
+	if(mainContainerWidth <= 640)	{ $('#mainContainer').width(640); }
+	else							{ $('#mainContainer').width(mainContainerWidth); }
+	
+	var missionsHeight					= $('#mainContainer').outerHeight(true)
+										- $('#navigationHeader').outerHeight(true)
+										- $('#trophies').outerHeight(true)
+										- padding*3;
+	$('#missions').height(missionsHeight);
+	
+	var missionListHeight				= missionsHeight
+										- $('#missions .active .heading').outerHeight(true)*3
+										- padding*2;
+	$('#missions .active .missionList').height(missionListHeight/3);
+	$('#missions .available .missionList').height(missionListHeight/3);
+	$('#missions .completed .missionList').height(missionListHeight/3);
+
+	
+//	console.log($('#profilePage').height());
+//	console.log($('#trophies').outerHeight(true));
+//	console.log(missionsHeight/3);
+
+	
+	var missionsWidth					= $('#profilePage').width()
+										- $('#user').outerWidth(true)
+										- padding;
+	$('#missions').width(missionsWidth);
+}
 
 
 
@@ -104,6 +158,7 @@ function getUser(){
 				var firstName = returnData.data.first_name;
 				var city = returnData.data.city;
 				var gold = returnData.data.coins;
+				console.log('gold' + gold)
 				
 				if(firstName != null)	{ $('#user .nameInfo .name').text(firstName); }
 				else 					{ $('#user .nameInfo .name').text('Welcome'); }

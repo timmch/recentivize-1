@@ -11,12 +11,13 @@ var missionCountdownInterval;
 // =====================================================================================================================
 $(function() {
 
+	// Populate User info & Missions
+	// ==============================================================
 	getUser();
 	getMission();
 
-//	alert($('#mainWindow').outerHeight(true));
-//	alert($('#mainWindow').outerWidth(true));
-
+	// Clicking on Missions
+	// ==============================================================
 	$('#missions').on('click', '.mission', function() {
 		var id = $(this).data('id');
 		$('#profilePage').hide('slide', {direction: 'left', easing: 'easeOutExpo'}, 500, function () {
@@ -28,6 +29,8 @@ $(function() {
 
 	});
 	
+	// Back Button
+	// ==============================================================
 	$('#navigationHeader .backButton').on('click', function() {
 		$('#missionPage').hide('slide', {direction: 'left', easing: 'easeOutExpo'}, 500, function () {
 			// Clear all the values
@@ -47,6 +50,12 @@ $(function() {
 			$('#profilePage').show('slide', {direction: 'left', easing: 'easeOutExpo'}, 500);
 			$('#navigationHeader .backButton').fadeOut(500);
 		});
+	});
+	
+	// LOGOUT Button
+	// ==============================================================
+	$('#user .logout').on('click', function () {
+		window.location.replace(WEB_URL + 'logout.php');
 	});
 	
 });

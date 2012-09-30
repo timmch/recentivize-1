@@ -47,7 +47,7 @@
 		<div id="profilePage" class="mainPage">
 			<div id="user">
 				<div class="nameInfo">
-					Welcome <span class="name"></span>
+					<span class="name"></span>
 				</div>
 				<div class="basicInfo">
 					<div class="avatar"></div>

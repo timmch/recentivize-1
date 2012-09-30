@@ -41,17 +41,26 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	width: 640px;
 	height: 712px;
 	
-	background: #CCC;
+	background: url('../images/backgrounds/noisy.png');
 	color: #000;
 }
 
 #navigationHeader{
 	height: 60px;
 /*	border: 1px solid #000;*/
-	background: #000;
+/*	background: #000;*/
+	
+	background: #87e0fd; /* Old browsers */
+	background: -moz-linear-gradient(top, #87e0fd 0%, #53cbf1 40%, #05abe0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87e0fd), color-stop(40%,#53cbf1), color-stop(100%,#05abe0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-9 */
 }
 #navigationHeader .backButton{
-	float: left;
+	float: right;
 	width: 120px;
 	height: 60px;
 	cursor: pointer;
@@ -65,7 +74,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 			background-size : 100% 100%;
 }
 #navigationHeader .logo{
-	float: right;
+	float: left;
 	width: 247px;
 	height: 60px;
 	
@@ -241,8 +250,9 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 #missions .heading{
 	font-size: 30px;
 	padding: 3px;
-	background: #FFF;
-	border: 1px solid #000;
+	background: #000;
+	border: 1px solid #FFF;
+	color: #FFF;
 	
 	text-align: center;
 	
@@ -263,9 +273,10 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 #missions .missionList{
 	height: 115px;
 	overflow: auto;
-	border-left: 1px solid #000;
-	border-right: 1px solid #000;
-	border-bottom: 1px solid #000;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	color: #FFF;
 	
 	-webkit-border-radius	: 0px 0px 5px 5px;
 	   -moz-border-radius	: 0px 0px 5px 5px;
@@ -278,7 +289,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	cursor: pointer;
 	text-align: left;
 	font-size: 20px;
-	color: #000;
+	color: #FFF;
 }
 #missions .missionList .mission.odd{
 	background: #52BDFF;

@@ -15,6 +15,7 @@ $(function() {
 	// ==============================================================
 	getUser();
 	getMission();
+//	getTrophies();
 
 	// Clicking on Missions
 	// ==============================================================
@@ -33,6 +34,10 @@ $(function() {
 	// ==============================================================
 	$('#navigationHeader .backButton').on('click', function() {
 		$('#missionPage').hide('slide', {direction: 'left', easing: 'easeOutExpo'}, 500, function () {
+			// Repopulate info
+			getMission();
+//			getTrophies();
+		
 			// Clear all the values
 			clearInterval(missionCountdownInterval);
 			$('#missionInfo .name').text('');
@@ -192,6 +197,11 @@ function getUser(){
 // - Grabs active/available/completed missions
 // =====================================================================================================================
 function getMission(){
+	// Clear the missions before repopulating
+	$('#missions .active .missionList').html('');
+	$('#missions .available .missionList').html('');
+	$('#missions .completed .missionList').html('');
+
 	$.ajax({
 		type	: 'POST',
 		url		: WEB_URL + 'ajax/getMission.php',
@@ -427,6 +437,53 @@ function completeMission(id){
 	});
 }
 
+
+
+// =====================================================================================================================
+// Get Trophies
+// - Grabs all trophies that you have
+// =====================================================================================================================
+function getTrophies(){
+	$.ajax({
+		type	: 'POST',
+		url		: WEB_URL + 'ajax/getTrophies.php',
+		data	: { },
+		dataType: 'json',
+		success	: function(returnData){
+			// No error, go ahead
+			if(returnData.err == false){
+				console.log('Getting trophies\t\t\t\t - [SUCCESS]');
+				console.log('• ' + returnData.msg);
+				
+				// Grab all the active missions
+				var count = 1;
+				for(mission in returnData.data.active)
+				{
+					var id = returnData.data.active[mission].id;
+					var name = returnData.data.active[mission].name;
+					
+					// Even Row
+					if (count%2 == 0){
+						var mission = $('<div class="mission even">'+ name +'</div>');
+					}
+					// Odd Row
+					else{
+						var mission = $('<div class="mission odd">'+ name +'</div>');
+					}
+					
+					mission.data('id', id);
+					
+					$('#missions .active .missionList').append(mission);
+					count++;
+				}				
+			}
+			// Display error
+			else{ console.log('Getting trophies\t\t\t\t - [ERROR]\n' + '• ' + returnData.msg); }
+			
+		},
+		error	: function(){ console.log('ERROR: ajax/getTrophies.php is busted!'); }
+	});
+}
 
 // =====================================================================================================================
 // Mission Countdown

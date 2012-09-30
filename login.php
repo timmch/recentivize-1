@@ -37,22 +37,21 @@ if ($_GET['login']) {
 
 
 require_once('header.php');?>
-
+<div id="mainWindow">
+<div id="mainContainer">
 <div id="topSplash" class="darkGradient">
-	<div id="loginNav">
-		<a class="pull-right" href="<?php echo WEB_URL; ?>register.php">Register</a>
-	</div>
-	<div id="splashBox" class="clear">
-		<div id="signUpEmail">
-		<img src="<?php echo WEB_URL; ?>images/logo.png" alt="Smiley face" height="184" width="800">
-
-			<h1>Making Volunteer Work Fun!</h1><br><br>
+		<img src="<?php echo WEB_URL; ?>images/logo.png" alt="Smiley face" height="40" width="650" margin:0 auto;>
+			<h1 style="text-align:center;">Making Volunteer Work Fun!</h1><br><br>
 			<form action="?login=1" method="post">
-			<input type="email" style="padding: 5px;" value="" name="email" class="email span4" placeholder="Email address..." required><br><input type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required><br><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large">Log In!</button>
+			<div  style="border:1px solid red; width: 638px; ">
+				<input  type="email" style="padding:20px 10px;font-size:1.4em; margin:0 auto;" value="" name="email" class="email span4" placeholder="Email address..." required >
+			</div>
+			<br><input style="padding:20px 10px;font-size:1.4em;" type="password" value="" name="password" class="password span4" id="mce-password" placeholder="Password..." required><br><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info btn-large" data-theme="b">Log In!</button>
 			</form>
-		</div>
-	</div>
 	<a href="http://zxing.appspot.com/scan?ret=http://foo.com/products/{CODE}/description&SCAN_FORMATS=UPC_A,EAN_13">here</a>
 	<div class="container marginTop">
 		<p style="position: relative;right:6px;"><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
 	</div>
+	</div>
+</div>
+</div>

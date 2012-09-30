@@ -10,7 +10,7 @@
 	
 	<!-- Include Our Style Sheets -->
 
-	<!-- <link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/main.css" /> -->
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/main.css" />
 	<meta name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=0.5; user-scalable=0;" />
 	
 	<!-- Include jQuery Scripts -->

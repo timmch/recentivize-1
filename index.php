@@ -4,6 +4,16 @@
 	
 	<?php require_once('initialize.php'); ?>
 	
+	<?php
+		session_start();
+		
+		// Redirect to login page if not logged in
+		if(!isset($_SESSION['loggedin'])){
+			header("Location: ".WEB_URL."login.php");	/* Redirect browser */
+			exit;										/* Make sure that code below does not get executed when we redirect. */
+		}
+	?>
+	
 	<!-- Include jQuery Style Sheets -->
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/smoothness/jquery-ui-1.8.19.custom.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo WEB_URL; ?>css/jquery.qtip.min.css" />
@@ -23,8 +33,9 @@
 	<!-- Include Our Scripts -->
 	<script type="text/javascript" charset="utf-8" src="<?php echo WEB_URL; ?>scripts/index.js"></script>
 	
-	<!-- Give .js files access to WEB URL variable -->
+	<!-- Give .js files access to WEB_URL & userID variables -->
 	<script type="text/javascript">var WEB_URL = '<?php echo WEB_URL; ?>';</script>
+	<script type="text/javascript">var userID = '<?php echo $_SESSION['user_id']; ?>';</script>
 </head>
 <body>
 <div id="mainWindow">

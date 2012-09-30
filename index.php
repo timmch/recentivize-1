@@ -93,12 +93,11 @@
 			</div>
 		</div>
 		<div id="missionPage" class="mainPage">
+			<div id="missionName"></div>
+			<div id="descriptionInfo">
+				<div class="description"></div>
+			</div>
 			<div id="missionInfo">
-				<div class="name"></div>
-				<div class="descriptionInfo">
-<!--					<div class="heading">Description</div>-->
-					<div class="description"></div>
-				</div>
 				<div class="timeLeftInfo">
 					<div class="heading">Time Remaining</div>
 					<div class="timeLeft"></div>
@@ -119,8 +118,10 @@
 				</div>
 				
 			</div>
-			<div id="acceptMission">Accept Mission</div>
-			<div id="completeMission">Complete Mission</div>
+			<div id="missionButtons">
+				<div class="accept button">Accept Mission</div>
+				<div class="complete button">Complete Mission</div>
+			</div>
 		</div>
 	</div>
 </div>

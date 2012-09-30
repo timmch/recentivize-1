@@ -43,8 +43,6 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	
 	background: #CCC;
 	color: #000;
-	
-	border: 1px solid aqua;
 }
 
 #navigationHeader{
@@ -79,10 +77,9 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 
 .mainPage{
-/*	padding: 5px;*/
+	padding: 5px;
 }
 #profilePage{
-	padding: 5px;
 }
 #missionPage{
 	display: none;
@@ -109,6 +106,12 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	
 	font-size: 30px;
 	border-bottom: 1px solid #000;
+	background: #FFF58B;
+	
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	   -moz-border-radius	: 5px 5px 0px 0px;
+	        border-radius	: 5px 5px 0px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #user .nameInfo .name{
 	float: left;
@@ -134,7 +137,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 #user .basicInfo{
 	overflow: auto;
-/*	border: 2px solid green;*/
+	border-bottom: 1px solid #000;
 }
 #user .basicInfo .avatar{
 	float: left;
@@ -142,7 +145,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	height: 150px;
 	
 	
-	border: 1px solid #333;
+	border-right: 1px solid #000;
 	
 	background				: url('../images/defaultProfilePic.jpeg');
 	-webkit-background-size	: 100% 100%;
@@ -153,8 +156,6 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 #user .basicInfo .city{
 	float: left;
 	padding: 3px;
-
-/*	border: 1px solid #333;	*/
 }
 
 
@@ -165,7 +166,10 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	overflow: auto;
 	padding: 3px;
 	
-/*	border: 1px solid fuchsia;*/
+	background: #999;
+	color: white;
+	
+	border-bottom: 1px solid #000;
 }
 #user .levelInfo .heading{
 	float: left;
@@ -174,12 +178,13 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	font-size: 16px;
 }
 #user .levelInfo .levelIndicator{
-	clear: both;
+/*	clear: both;*/
+	float: right;
 }
 #user .levelInfo .levelIndicator .level{
 	float: left;
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 22px;
 	
 	cursor: help;
 	
@@ -188,18 +193,30 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	border-left: 1px solid #000;
 }
 #user .levelInfo .levelIndicator .level.highlight{
-	background: aqua;
+	background: #FFDE58;
+}
+#user .levelInfo .levelIndicator .level1{
+	-webkit-border-radius	: 5px 0px 0px 5px;
+	   -moz-border-radius	: 5px 0px 0px 5px;
+	        border-radius	: 5px 0px 0px 5px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #user .levelInfo .levelIndicator .level5{
 	border-right: 1px solid #000;
+	
+	-webkit-border-radius	: 0px 5px 5px 0px;
+	   -moz-border-radius	: 0px 5px 5px 0px;
+	        border-radius	: 0px 5px 5px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #user .goldInfo{
 	clear: both;
 	overflow: auto;
 	
-	padding: 3px;
+	background: #999;
+	color: white;
 	
-/*	border: 1px solid #333;*/
+	padding: 3px;
 }
 #user .goldInfo .heading{
 	float: left;
@@ -207,7 +224,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 #user .goldInfo .gold{
 	float: left;
-	color: yellow;
+	color: #FFDE58;
 }
 
 
@@ -322,12 +339,7 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 /* =====================================================================================================================
 // Mission Info
 // ===================================================================================================================*/
-#missionInfo{
-	border: 1px solid orange;
-	overflow: auto;
-	margin-bottom: 10px;
-}
-#missionInfo .name{
+#missionName{
 	font-size: 50px;
 	height: 120px;
 	padding: 5px;
@@ -336,51 +348,90 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	
 	background: #000;
 	color: #FFF;
+	
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	   -moz-border-radius	: 5px 5px 0px 0px;
+	        border-radius	: 5px 5px 0px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
-#missionInfo .descriptionInfo{
+#descriptionInfo{
 	border: 1px solid #333;
-}
-#missionInfo .descriptionInfo .heading{
-	font-size: 30px;
 	background: #FFF;
+	padding: 5px;
+	
+	-webkit-border-radius	: 0px 0px 5px 5px;
+	   -moz-border-radius	: 0px 0px 5px 5px;
+	        border-radius	: 0px 0px 5px 5px;
+	        	 behavior	: url(css/PIE.htc);
 }
-#missionInfo .descriptionInfo .description{
-/*	font-size: 20px;*/
+#descriptionInfo .description{}
+#missionInfo{
+/*	border: 1px solid orange;*/
+	overflow: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 #missionInfo .addressInfo .heading{
-	font-size: 25px;
+	font-size: 30px;
 	
 	background: #FFF;
 }
 #missionInfo .timeLeftInfo{
 	float: left;
-	border: 1px solid fuchsia;
+	width: 320px;
+	
+	margin-bottom: 5px;
 }
 #missionInfo .timeLeftInfo .heading{
 	background: #FFF;
 	font-size: 30px;
+	border: 1px solid #000;
+	
+	text-align: center;
+	
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	   -moz-border-radius	: 5px 5px 0px 0px;
+	        border-radius	: 5px 5px 0px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #missionInfo .timeLeftInfo .timeLeft{
-	font-size: 25px;
+	font-size: 35px;
+	background: #000;
+	color: #FFF;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
 	
 	text-align: center;
 }
 
 #missionInfo .rewardsInfo{
+	width: 320px;
 	clear: left;
 	float: left;
 	border: 1px solid blue;
 }
 #missionInfo .rewardsInfo .heading{
 	background: #FFF;
+	
+	border: 1px solid #000;
+	text-align: center;
+	font-size: 30px;
+	
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	   -moz-border-radius	: 5px 5px 0px 0px;
+	        border-radius	: 5px 5px 0px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #missionInfo .rewardsInfo .badgeTitle{
-	font-size: 14px;
+	font-size: 17px;
 	text-align: center;
+	background: #000;
+	color: #FFF;
 }
 #missionInfo .rewardsInfo .badge{
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	border: 1px solid #000;
 	
 	-webkit-background-size	: 100% 100%;
@@ -390,14 +441,25 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 }
 #mapInfo{
 	float: right;
-	border: 1px solid red;
 }
 #mapInfo .heading{
+	text-align: center;
 	font-size: 30px;
 	background: #FFF;
+	border: 1px solid #000;
+	-webkit-border-radius	: 5px 5px 0px 0px;
+	   -moz-border-radius	: 5px 5px 0px 0px;
+	        border-radius	: 5px 5px 0px 0px;
+	        	 behavior	: url(css/PIE.htc);
 }
 #mapInfo .address{
 	text-align: center;
+	font-size: 14px;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	
+	background: #000;
+	color: #FFF;
 }
 #mapCanvas{
 	width: 300px;
@@ -411,7 +473,10 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 /* =====================================================================================================================
 // Accept / Complete Mission Buttons
 // ===================================================================================================================*/
-#acceptMission{
+#missionButtons{
+	border: 1px solid fuchsia;
+}
+#missionButtons .button{
 	display: none;
 	clear: both;
 	width: 400px;
@@ -422,27 +487,19 @@ body						{ width: 100%; height: 100%; min-height: 100%; color: #000;
 	padding: 25px 5px;
 	font-size: 40px;
 	text-align: center;
-}
-#acceptMission:hover{
-	color: #FFF;
-	background: #000;
-}
-#completeMission{
-	display: none;
-	clear: both;
-	width: 400px;
-/*	height: 100px;*/
-	background: #FFF;
+	border: 1px solid #000;
 	
-	cursor: pointer;
-	padding: 25px 5px;
-	font-size: 40px;
-	text-align: center;
+	-webkit-border-radius	: 15px;
+	   -moz-border-radius	: 15px;
+	        border-radius	: 15px;
+	        	 behavior	: url(css/PIE.htc);
 }
-#completeMission:hover{
+#missionButtons .button:hover{
 	color: #FFF;
 	background: #000;
 }
+#missionButtons .accept{}
+#missionButtons .complete{}
 
 
 

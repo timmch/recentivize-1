@@ -54,25 +54,25 @@
 				</div>
 				<div class="goldInfo">
 					<div class="heading">Gold)</div>
-					<div class="gold">5000</div>
+					<div class="gold"></div>
 				</div>
 			</div>
 			<div id="missions">
 				<div class="active">
-					<div class="heading">Active missions</div>
+					<div class="heading">Active Missions</div>
 					<div class="missionList"></div>
 				</div>
 				<div class="available">
-					<div class="heading">Available missions</div>
+					<div class="heading">Available Missions</div>
 					<div class="missionList"></div>
 				</div>
 				<div class="completed">
-					<div class="heading">Completed missions</div>
+					<div class="heading">Completed Missions</div>
 					<div class="missionList"></div>
 				</div>
 			</div>
 			<div id="trophies">
-				<div class="heading">Your trophies</div>
+				<div class="heading">Your Badges</div>
 				<div class="trophyList">
 					<div class="trophy">1</div>
 					<div class="trophy">2</div>
@@ -84,7 +84,7 @@
 			<div id="missionInfo">
 				<div class="name"></div>
 				<div class="descriptionInfo">
-					<div class="heading">Description</div>
+<!--					<div class="heading">Description</div>-->
 					<div class="description"></div>
 				</div>
 				<div class="timeLeftInfo">
@@ -108,6 +108,7 @@
 				
 			</div>
 			<div id="acceptMission">Accept Mission</div>
+			<div id="completeMission">Complete Mission</div>
 		</div>
 	</div>
 </div>

@@ -322,11 +322,17 @@ function viewMission(id){
 //				var endDate = returnData.end_date;
 				var badgeTitle = returnData.badge_title;
 				var reward = returnData.reward;
+				var status = returnData.status;
+				console.log(status);
 				
 				$('#missionInfo .name').text(name);
 				$('#missionInfo .description').text(description);
 				$('#missionInfo .badgeTitle').text(badgeTitle);
 				$('#missionInfo .reward').text(reward);
+				
+				$('#missionInfo .badge').css({'background': 'url(' + WEB_URL + '/images/badges/' + id + '.png)',
+											'-webkit-background-size': '100% 100%', '-moz-background-size': '100% 100%',
+											'-o-background-size': '100% 100%', 'background-size': '100% 100%', });
 				
 				
 				// Setup countdown

@@ -18,12 +18,13 @@ if ($_GET['register']) {
      $foundEmail = mysql_fetch_row($users);
      $foundEmail = $foundEmail[0];
      $password = $_POST['password'];
+     $first_name = $_POST['first_name'];
      $password2 = $_POST['password2'];
      if (   ($password == $password2) && ($foundEmail == NULL)  ) {
          // Load code below if both username
          // and password submitted are correct
          $password = sha1($password);
-         $quer = "INSERT INTO users (email, password) VALUES  ('" . $email . "', '" . $password . "')";
+         $quer = "INSERT INTO users (email, password, first_name) VALUES  ('" . $email . "', '" . $password . "')";
          
 		 $register = mysql_query($quer); 		
          $_SESSION['loggedin'] = 1;

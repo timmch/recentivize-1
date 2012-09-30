@@ -3,6 +3,9 @@
 	$password = "recentivize";
 	$hostname = "108.167.179.192";
 	$id = "'".$_SESSION['user_id']."'";  
+	echo("***********88");
+	echo($id);
+	echo("*********************");
 	$dbhandle = mysql_connect($hostname, $username, $password) 
 	  or die("Unable to connect to MySQL");
 

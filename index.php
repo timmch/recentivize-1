@@ -72,6 +72,16 @@
 					<div class="heading">Gold)</div>
 					<div class="gold"></div>
 				</div>
+				<div id="friends">
+					<div class="heading">Your Group</div>
+					<div class="groupBox">
+						<div class="friend">John</div>
+						<div class="friend">Nick</div>
+						<div class="friend">Tim</div>
+						<div class="friend">Diane</div>
+						<div class="friend">Ken</div>
+					</div>
+				</div>
 			</div>
 			<div id="missions">
 				<div class="active">

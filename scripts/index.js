@@ -128,6 +128,28 @@ function resizeContainers() {
 										- $('#user').outerWidth(true)
 										- padding;
 	$('#missions').width(missionsWidth);
+	
+	
+	var mapInfoHeight					= $('#mainContainer').outerHeight(true)
+										- $('#navigationHeader').outerHeight(true)
+										- $('#missionName').outerHeight(true)
+//										- $('#descriptionInfo').outerHeight(true)
+										- 35
+										- 97
+										- padding*2;
+										
+//	console.log($('#mainContainer').outerHeight(true));
+//	console.log($('#navigationHeader').outerHeight(true));
+//	console.log($('#missionName').outerHeight(true));
+//	console.log($('#descriptionInfo').outerHeight(true));
+	$('#mapInfo').height(mapInfoHeight);
+	
+	var mapCanvasHeight					= mapInfoHeight
+										- 52;
+//	console.log(mapCanvasHeight);
+//	console.log($('#mapInfo .addressInfo').outerHeight(true));				
+
+	$('#mapCanvas').height(mapCanvasHeight);
 }
 
 

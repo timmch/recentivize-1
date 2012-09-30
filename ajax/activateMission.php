@@ -1,4 +1,5 @@
 <?php
+    session_start();
 	$username = "timmch_root";
 	$password = "recentivize";
 	$hostname = "108.167.179.192"; 

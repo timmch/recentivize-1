@@ -58,8 +58,8 @@ require_once('header.php');?>
 			</div>
 <!--	<a href="http://zxing.appspot.com/scan?ret=http://foo.com/products/{CODE}/description&SCAN_FORMATS=UPC_A,EAN_13">here</a> -->
 	<br>
-	<div class="container marginTop">
-		<p><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
+	<div class="container marginTop" style="text-align:center;">
+		<p style="text-align:center;"><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
 	</div>
 	</div>
 </div>

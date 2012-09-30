@@ -8,11 +8,6 @@
 	$dbhandle = mysql_connect($hostname, $username, $password);
 	$selected = mysql_select_db("timmch_recentivize",$dbhandle);
 if ($_GET['login']) {
- 	$username = "timmch_root";
-	$password = "recentivize";
-	$hostname = "108.167.179.192";
-	$id = "'".$_SESSION['user_id']."'";  
-	$dbhandle = mysql_connect($hostname, $username, $password);
      $email = $_POST['email'];
      $quer = "SELECT password, id FROM users WHERE email = '" . $email."'";
      $users = mysql_query($quer);
@@ -25,8 +20,6 @@ if ($_GET['login']) {
  
          $_SESSION['loggedin'] = 1;
          $_SESSION['user_id'] = $userID;
-          // Set session variable
- 
          header("Location: index.php");
          exit;
          // Redirect to a protected page

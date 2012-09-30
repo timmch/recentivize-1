@@ -430,7 +430,11 @@ function viewMission(id){
 				
 				// Setup countdown
 				var startDate = new Date(returnData.start_date);
-				var endDate = new Date(returnData.end_date);
+//				var endDate = new Date(returnData.end_date);
+//				console.log(returnData.end_date);
+//				console.log(endDate);
+				
+				var endDate = "October 1, 2012 00:00:00";
 				
 				$('#missionInfo .timeLeft').text(missionCountdown(endDate));
 				missionCountdownInterval = setInterval(function() {
@@ -568,9 +572,12 @@ function getTrophies(){
 // - Updates the countdown timer for missions
 // =====================================================================================================================
 function missionCountdown(endDate) {
-	var epocSeconds = new Date().getTime() / 1000;				
+	var epocSeconds = new Date().getTime() / 1000;
+	epocSeconds = Math.floor(epocSeconds);
 	
-	var endDateSeconds = endDate.getTime()/1000;
+	var endDateSeconds = 1349841600;//endDate.getTime() / 1000;
+//	console.log(endDate);
+//	console.log(endDateSeconds);
 	
 	timeLeftSeconds = endDateSeconds - epocSeconds;
 	

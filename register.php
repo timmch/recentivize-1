@@ -70,8 +70,9 @@ require_once('header.php');?>
 			</form>
 			<div style="text-align:center;">
 			<a href="<?php echo WEB_URL; ?>login.php">Login</a>
-			</div>			
-	<div class="container marginTop">
+			</div>	
+		<br>		
+		<div style="text-align:center;">
 		<p><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
 	</div>
 </div>

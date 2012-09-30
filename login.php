@@ -56,11 +56,11 @@ require_once('header.php');?>
 			<div style="text-align:center;">
 			<a href="<?php echo WEB_URL; ?>register.php">Register</a>
 			</div>
+			<br>
 <!--	<a href="http://zxing.appspot.com/scan?ret=http://foo.com/products/{CODE}/description&SCAN_FORMATS=UPC_A,EAN_13">here</a> -->
-	<br>
-	<div class="container marginTop" style="text-align:center;">
-		<p style="text-align:center;"><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
-	</div>
+			<div style="text-align:center;">
+				<p style="text-align:center;"><small>Copyright &copy; 2012 Recentivize, LLC. All rights reserved.</small></p>
+			</div>
 	</div>
 </div>
 </div>
